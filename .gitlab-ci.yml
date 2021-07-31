@@ -1,0 +1,14 @@
+stages:
+  - conventional-commits-linting
+
+
+conventional-commits-linting:
+  stage: conventional-commits-linting
+  image: rust
+  before_script:
+    - cargo install conventional_commits_linter
+  script:
+    # Lint all the commits in the branch.
+    - /usr/local/cargo/bin/conventional_commits_linter --from-reference "origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" --allow-angular-type-only
+  rules:
+    - if: $CI_MERGE_REQUEST_ID
