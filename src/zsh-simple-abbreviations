@@ -1,0 +1,28 @@
+#!/usr/bin/env zsh
+
+__zsh_simple_abbreviations::expand() {
+		emulate -L zsh -o extended_glob
+		local MATCH
+		LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9#%+.~,:/]#}
+		# If matches set abbreviation add that else just add what we attempted to match on.
+		LBUFFER+=${${_zsh_simple_abbreviations[$MATCH]}:-$MATCH}
+		zle self-insert
+}
+
+__zsh_simple_abbreviations::insert_space() {
+		LBUFFER+=" "
+}
+
+
+while [ $# -gt 0 ]; do
+		if [[ "$1" =~ "=" ]]; then
+				local key=${1%%=*} value=${1#*=}
+				_zsh_simple_abbreviations[$key]="$value"
+		else
+				echo "'$1' could not be parsed to a key and value pair, provide it in the form 'key=value'."
+				return 1
+		fi
+		shift
+done
+
+return 0
