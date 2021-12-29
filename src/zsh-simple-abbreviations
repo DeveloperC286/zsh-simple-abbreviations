@@ -6,10 +6,12 @@ __zsh_simple_abbreviations::expand() {
 		LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9#%+.~,:/]#}
 		# If matches set abbreviation add that else just add what we attempted to match on.
 		LBUFFER+=${${_zsh_simple_abbreviations[$MATCH]}:-$MATCH}
+		# Adds a space to the end of the command buffer.
 		zle self-insert
 }
 
 __zsh_simple_abbreviations::insert_space() {
+		# Adds a space to the end of the command buffer.
 		LBUFFER+=" "
 }
 
