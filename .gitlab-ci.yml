@@ -3,6 +3,12 @@ stages:
   - conventional-commits-linting
   - conventional-commits-next-version-checking
   - version-badge-checking
+  - releasing
+
+
+variables:
+  SEMANTIC_VERSIONING_REGEX: "[0-9][0-9]*[.][0-9][0-9]*[.][0-9][0-9]*"
+  RELEASE_BIN_NAME: "release-cli-linux-amd64"
 
 
 clean-git-history-checking:
@@ -12,7 +18,7 @@ clean-git-history-checking:
     - cargo install clean_git_history
   script:
     # Check all the commits in the branch.
-    - /usr/local/cargo/bin/clean_git_history --from-reference "origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+    - /usr/local/cargo/bin/clean_git_history --from-reference "origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}"
   rules:
     - if: $CI_MERGE_REQUEST_ID
 
@@ -24,7 +30,7 @@ conventional-commits-linting:
     - cargo install conventional_commits_linter
   script:
     # Lint all the commits in the branch.
-    - /usr/local/cargo/bin/conventional_commits_linter --from-reference "origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" --allow-angular-type-only
+    - /usr/local/cargo/bin/conventional_commits_linter --from-reference "origin/${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}" --allow-angular-type-only
   rules:
     - if: $CI_MERGE_REQUEST_ID
 
@@ -35,16 +41,16 @@ conventional-commits-next-version-checking:
   before_script:
     - cargo install conventional_commits_next_version
   script:
-    # Get current version and latest tag.
+    # Get current version.
     - CURRENT_VERSION=$(cat VERSION)
-    # Check latest tag is in semantic versioning.
-    - echo "$CURRENT_VERSION" | grep "^[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*$"
+    # Check current version is in semantic versioning.
+    - echo "${CURRENT_VERSION}" | grep "^${SEMANTIC_VERSIONING_REGEX}$"
     # Get latest tag.
-    - LATEST_TAG=$(git describe --tags --abbrev=0)
+    - LATEST_TAG=$(git tag --sort=-committerdate | head -1)
     # Check latest tag is in semantic versioning.
-    - echo "$LATEST_TAG" | grep "^[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*$"
+    - echo "${LATEST_TAG}" | grep "^${SEMANTIC_VERSIONING_REGEX}$"
     # Check current vs expected.
-    - /usr/local/cargo/bin/conventional_commits_next_version --batch-commits --from-reference "$LATEST_TAG" --from-version "$LATEST_TAG" --current-version "$CURRENT_VERSION"
+    - /usr/local/cargo/bin/conventional_commits_next_version --batch-commits --from-reference "${LATEST_TAG}" --from-version "${LATEST_TAG}" --current-version "${CURRENT_VERSION}"
   rules:
     - if: $CI_MERGE_REQUEST_ID
 
@@ -53,11 +59,42 @@ version-badge-checking:
   stage: version-badge-checking
   image: alpine
   script:
-    # Get current version and latest tag.
+    # Get current version.
     - CURRENT_VERSION=$(cat VERSION)
-    # Check latest tag is in semantic versioning.
-    - echo "$CURRENT_VERSION" | grep "^[0-9][0-9]*.[0-9][0-9]*.[0-9][0-9]*$"
+    # Check current version is in semantic versioning.
+    - echo "${CURRENT_VERSION}" | grep "^${SEMANTIC_VERSIONING_REGEX}$"
     # Check README version badge and version match.
-    - grep "(https://img.shields.io/badge/Version-$CURRENT_VERSION-blue)]" README.md
+    - grep "(https://img.shields.io/badge/Version-${CURRENT_VERSION}-blue)]" README.md
   rules:
     - if: $CI_MERGE_REQUEST_ID
+
+
+releasing:
+  stage: releasing
+  image: rust
+  script:
+    # Get current version.
+    - CURRENT_VERSION=$(cat VERSION)
+    # Check current version is in semantic versioning.
+    - echo "${CURRENT_VERSION}" | grep "^${SEMANTIC_VERSIONING_REGEX}$"
+    # If the tag already exist then exit.
+    - NEW_TAG=${CURRENT_VERSION}
+    - git tag -l | grep "^${NEW_TAG}$" && exit 0
+    # Get latest tag.
+    - LATEST_TAG=$(git tag --sort=-committerdate | head -1)
+    # Install release description generator.
+    - wget "https://github.com/orhun/git-cliff/releases/download/v0.4.2/git-cliff-0.4.2-x86_64-unknown-linux-musl.tar.gz"
+    - tar xzvf git-cliff-0.4.2-x86_64-unknown-linux-musl.tar.gz
+    # Generate the release description.
+    - RELEASE_DESCRIPTION=$(./git-cliff-0.4.2/git-cliff ${LATEST_TAG}.. --tag "${NEW_TAG}" --strip all)
+    # Install GitlabCI cli releasing tool.
+    - wget "https://release-cli-downloads.s3.amazonaws.com/latest/${RELEASE_BIN_NAME}"
+    - chmod 755 "${RELEASE_BIN_NAME}"
+    # Create the new release.
+    - ./${RELEASE_BIN_NAME} create
+      --name "${CURRENT_VERSION}"
+      --description "${RELEASE_DESCRIPTION}"
+      --tag-name "${NEW_TAG}"
+      --ref "${CI_COMMIT_SHA}"
+  rules:
+    - if: $CI_COMMIT_BRANCH == "main"
