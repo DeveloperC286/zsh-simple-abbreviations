@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-VERSION='0.2.0'
+VERSION='0.3.0'
 KEY_REGEX="-_a-zA-Z0-9"
 
 __zsh_simple_abbreviations::expand() {
@@ -21,14 +21,14 @@ __zsh_simple_abbreviations::insert_space() {
 
 if [[ $# -eq 0 ]]; then
 		echo "zsh_simple_abbreviations no sub-command or arguments provided."
-		return
+		return 1
 fi
 
 case $1 in
 		--add)
 				if [[ $# -ne 3 ]]; then
 						echo "zsh_simple_abbreviations add sub-command requires a key and value."
-						return
+						return 1
 				fi
 
 				local key=${2}
@@ -38,19 +38,55 @@ case $1 in
 						_zsh_simple_abbreviations[$key]="${value}"
 				else
 						echo "zsh_simple_abbreviations add sub-command key does not match the regex '^[${KEY_REGEX}]*$'."
-						return
+						return 1
 				fi
 		;;
+
+		--remove)
+				if [[ $# -ne 2 ]]; then
+						echo "zsh_simple_abbreviations remove sub-command requires only a key."
+						return 1
+				fi
+
+				local key=${2}
+
+				if [[ $(echo "${key}" | grep -E "^[${KEY_REGEX}]*$") ]]; then
+						if [[ -n "${_zsh_simple_abbreviations[$key]}" ]]; then
+								unset "_zsh_simple_abbreviations[$key]"
+						else
+								echo "zsh_simple_abbreviations remove sub-command key does not match any abbreviations."
+								return 1
+						fi
+				else
+						echo "zsh_simple_abbreviations remove sub-command key does not match the regex '^[${KEY_REGEX}]*$'."
+						return 1
+				fi
+		;;
+
+
+		--list)
+				if [[ $# -ne 1 ]]; then
+						echo "zsh_simple_abbreviations list sub-command takes no other arguments."
+						return 1
+				fi
+
+				for key in ${(ko)_zsh_simple_abbreviations}; do
+						echo "zsh_simple_abbreviations --add ${key} '${_zsh_simple_abbreviations[$key]}'"
+				done
+		;;
+
+
 		--version)
 				if [[ $# -ne 1 ]]; then
 						echo "zsh_simple_abbreviations version sub-command takes no other arguments."
-						return
+						return 1
 				fi
 
 				echo "${VERSION}"
 		;;
+
 		*)
 				echo "zsh_simple_abbreviations unrecognised sub-command."
-				return
+				return 1
 		;;
 esac
