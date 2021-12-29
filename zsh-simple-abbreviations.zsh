@@ -1,8 +1,6 @@
 #!/usr/bin/env zsh
 
 if [[ -n $ZSH_VERSION ]]; then
-		typeset -g _ZSH_SIMPLE_ABBREVIATIONS_VERSION='0.2.0'
-
 		# Create new abbreviations map.
 		typeset -Ag _zsh_simple_abbreviations
 

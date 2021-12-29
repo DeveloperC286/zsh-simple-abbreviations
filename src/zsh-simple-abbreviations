@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+VERSION='0.2.0'
 KEY_REGEX="-_a-zA-Z0-9"
 
 __zsh_simple_abbreviations::expand() {
@@ -46,7 +47,7 @@ case $1 in
 						return
 				fi
 
-				echo "${_ZSH_SIMPLE_ABBREVIATIONS_VERSION}"
+				echo "${VERSION}"
 		;;
 		*)
 				echo "zsh_simple_abbreviations unrecognised sub-command."
