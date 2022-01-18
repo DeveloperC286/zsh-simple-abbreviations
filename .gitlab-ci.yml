@@ -57,11 +57,9 @@ version-badge-checking:
   image: alpine
   script:
     # Get current version.
-    - CURRENT_VERSION=$(cat src/zsh-simple-abbreviations | grep "^VERSION" | cut -d "'" -f 2)
-    # Check current version is in semantic versioning.
-    - echo "${CURRENT_VERSION}" | grep "^${SEMANTIC_VERSIONING_REGEX}$"
+    - current_version=$(cat src/zsh-simple-abbreviations | grep "^VERSION" | cut -d "'" -f 2)
     # Check README version badge and version match.
-    - grep "(https://img.shields.io/badge/Version-${CURRENT_VERSION}-blue)]" README.md
+    - grep -q "(https://img.shields.io/badge/Version-${current_version}-blue)]" "README.md"
   rules:
     - if: $CI_MERGE_REQUEST_ID
 
@@ -71,27 +69,27 @@ releasing:
   image: rust
   script:
     # Get current version.
-    - CURRENT_VERSION=$(cat src/zsh-simple-abbreviations | grep "^VERSION" | cut -d "'" -f 2)
+    - current_version=$(cat src/zsh-simple-abbreviations | grep "^VERSION" | cut -d "'" -f 2)
     # Check current version is in semantic versioning.
-    - echo "${CURRENT_VERSION}" | grep "^${SEMANTIC_VERSIONING_REGEX}$"
+    - echo "${current_version}" | grep "^${SEMANTIC_VERSIONING_REGEX}$"
     # If the tag already exist then exit.
-    - NEW_TAG=${CURRENT_VERSION}
-    - git tag -l | grep "^${NEW_TAG}$" && exit 0
+    - new_tag=${current_version}
+    - git tag -l | grep -q "^${new_tag}$" && exit 0
     # Get latest tag.
-    - LATEST_TAG=$(git tag --sort=-committerdate | head -1)
+    - latest_tag=$(git tag --sort=-committerdate | head -1)
     # Install release description generator.
     - wget "https://github.com/orhun/git-cliff/releases/download/v${GIT_CLIFF_VERSION}/git-cliff-${GIT_CLIFF_VERSION}-x86_64-unknown-linux-musl.tar.gz"
     - tar xzvf "git-cliff-${GIT_CLIFF_VERSION}-x86_64-unknown-linux-musl.tar.gz"
     # Generate the release description.
-    - RELEASE_DESCRIPTION=$(./git-cliff-${GIT_CLIFF_VERSION}/git-cliff "${LATEST_TAG}.." --tag "${NEW_TAG}" --strip all)
+    - release_description=$(./git-cliff-${GIT_CLIFF_VERSION}/git-cliff "${latest_tag}.." --tag "${new_tag}" --strip all)
     # Install GitlabCI cli releasing tool.
     - wget "https://release-cli-downloads.s3.amazonaws.com/latest/${RELEASE_BIN_NAME}"
     - chmod 755 "${RELEASE_BIN_NAME}"
     # Create the new release.
     - ./${RELEASE_BIN_NAME} create
-      --name "${CURRENT_VERSION}"
-      --description "${RELEASE_DESCRIPTION}"
-      --tag-name "${NEW_TAG}"
+      --name "${new_tag}"
+      --description "${release_description}"
+      --tag-name "${new_tag}"
       --ref "${CI_COMMIT_SHA}"
   rules:
     - if: $CI_COMMIT_BRANCH == "main"
