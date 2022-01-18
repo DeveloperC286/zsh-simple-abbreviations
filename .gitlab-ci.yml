@@ -43,7 +43,7 @@ conventional-commits-next-version-checking:
     - cargo install conventional_commits_next_version
   script:
     # Get current version.
-    - current_version=$(cat src/zsh-simple-abbreviations | grep "^VERSION" | cut -d "'" -f 2)
+    - current_version=$(grep "^VERSION" "src/zsh-simple-abbreviations" | cut -d "'" -f 2)
     # Get latest tag.
     - latest_tag=$(git tag --sort=-committerdate | head -1)
     # Check current vs expected.
@@ -57,7 +57,7 @@ version-badge-checking:
   image: alpine
   script:
     # Get current version.
-    - current_version=$(cat src/zsh-simple-abbreviations | grep "^VERSION" | cut -d "'" -f 2)
+    - current_version=$(grep "^VERSION" "src/zsh-simple-abbreviations" | cut -d "'" -f 2)
     # Check README version badge and version match.
     - grep -q "(https://img.shields.io/badge/Version-${current_version}-blue)]" "README.md"
   rules:
@@ -69,9 +69,9 @@ releasing:
   image: rust
   script:
     # Get current version.
-    - current_version=$(cat src/zsh-simple-abbreviations | grep "^VERSION" | cut -d "'" -f 2)
+    - current_version=$(grep "^VERSION" "src/zsh-simple-abbreviations" | cut -d "'" -f 2)
     # Check current version is in semantic versioning.
-    - echo "${current_version}" | grep "^${SEMANTIC_VERSIONING_REGEX}$"
+    - echo "${current_version}" | grep -q "^${SEMANTIC_VERSIONING_REGEX}$"
     # If the tag already exist then exit.
     - new_tag=${current_version}
     - git tag -l | grep -q "^${new_tag}$" && exit 0
