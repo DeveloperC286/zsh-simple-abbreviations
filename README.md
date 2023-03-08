@@ -16,32 +16,32 @@ The difference between aliases and abbreviations are that aliases are left in pl
 E.g.
 
 ### Aliases
-```
+```sh
 alias GP="git pull"
 ```
 
 If you create an alias called `GP` standing for `git pull`.
 
-```
+```sh
 GP<enter>
 ```
 
 And you type `GP` and hit enter the alias will be looked up behind the scenes and the command `git pull` will be executed.
 
 ### Abbreviations
-```
+```sh
 zsh-simple-abbreviations --add GP "git pull"
 ```
 
 If you create an abbreviation called `GP` standing for `git pull`.
 
-```
+```sh
 GP<space>
 ```
 
 And you type `GP` followed by a space.
 
-```
+```sh
 git pull<space>
 ```
 
@@ -81,27 +81,27 @@ zsh-simple-abbreviations is a simple manager for abbreviations with a minimal bu
 
 ## Usage
 ### Usage - Add abbreviation
-```
+```sh
 zsh-simple-abbreviations --add <abbreviation> <command abbreviation expands to>
 ```
 
 E.g.
-```
+```sh
 zsh-simple-abbreviations --add GP "git pull"
 ```
 
 ### Usage - Remove abbreviation
-```
+```sh
 zsh-simple-abbreviations --remove <abbreviation>
 ```
 
 E.g.
-```
+```sh
 zsh-simple-abbreviations --remove GP
 ```
 
 ### Usage - List abbreviations
-```
+```sh
 zsh-simple-abbreviations --list
 ```
 
@@ -113,13 +113,13 @@ If you want to insert a space and not expand the any abbreviations to the left o
 ### Installation - Standalone
 You first need to clone zsh-simple-abbreviations.
 
-```
+```sh
 git clone https://gitlab.com/DeveloperC/zsh-simple-abbreviations/ "${HOME}/.zsh-simple-abbreviations"
 ```
 
 Then in your `.zshrc` you need to source zsh-simple-abbreviations, before you can add, remove and use abbreviations.
 
-```
+```sh
 source "${HOME}/.zsh-simple-abbreviations/zsh-simple-abbreviations.zsh"
 ```
 
