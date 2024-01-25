@@ -128,4 +128,4 @@ zsh-simple-abbreviations is included as part of oh-my-minimal see [https://gitla
 
 
 ## Issues/Feature Requests
-To report a bug/issue or request a new feature use [https://gitlab.com/DeveloperC/zsh-simple-abbreviations/-/issues](https://gitlab.com/DeveloperC/zsh-simple-abbreviations/-/issues).
+To report a bug/issue or request a new feature use [https://github.com/DeveloperC286/zsh-simple-abbreviations/issues](https://github.com/DeveloperC286/zsh-simple-abbreviations/issues).
