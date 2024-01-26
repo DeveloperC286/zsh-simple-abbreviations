@@ -3,7 +3,7 @@
 # Only run if executed in Zsh environment.
 if [[ -n "${ZSH_VERSION}" ]]; then
 		# Create new abbreviations map.
-		typeset -Ag _zsh_simple_abbreviations
+		typeset -Ag ZSH_SIMPLE_ABBREVIATIONS
 
 		fpath+=${0:A:h}/src
 		autoload -Uz zsh-simple-abbreviations
