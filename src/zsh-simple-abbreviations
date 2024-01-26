@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 VERSION='0.3.0'
-KEY_REGEX="-_a-zA-Z0-9"
+KEY_REGEX="^[[:alnum:]]+$"
 
 __zsh_simple_abbreviations::expand() {
 		emulate -L zsh -o extended_glob
@@ -34,10 +34,10 @@ case $1 in
 				local key=${2}
 				local value=${3}
 
-				if [[ $(echo "${key}" | grep -E "^[${KEY_REGEX}]*$") ]]; then
+				if [[ "${key}" =~ ${KEY_REGEX} ]]; then
 						_zsh_simple_abbreviations[$key]="${value}"
 				else
-						echo "zsh_simple_abbreviations add sub-command key does not match the regex '^[${KEY_REGEX}]*$'."
+						echo "zsh_simple_abbreviations key '${key}' contains non-alphanumeric characters."
 						return 1
 				fi
 		;;
@@ -50,7 +50,7 @@ case $1 in
 
 				local key=${2}
 
-				if [[ $(echo "${key}" | grep -E "^[${KEY_REGEX}]*$") ]]; then
+				if [[ "${key}" =~ ${KEY_REGEX} ]]; then
 						if [[ -n "${_zsh_simple_abbreviations[$key]}" ]]; then
 								unset "_zsh_simple_abbreviations[$key]"
 						else
@@ -58,7 +58,7 @@ case $1 in
 								return 1
 						fi
 				else
-						echo "zsh_simple_abbreviations remove sub-command key does not match the regex '^[${KEY_REGEX}]*$'."
+						echo "zsh_simple_abbreviations key '${key}' contains non-alphanumeric characters."
 						return 1
 				fi
 		;;
