@@ -1,6 +1,4 @@
 # Zsh Simple Abbreviations
-[![Latest Release](https://gitlab.com/DeveloperC/zsh-simple-abbreviations/-/badges/release.svg)](https://gitlab.com/DeveloperC/zsh-simple-abbreviations/-/releases)
-[![Pipeline Status](https://gitlab.com/DeveloperC/zsh-simple-abbreviations/badges/main/pipeline.svg)](https://gitlab.com/DeveloperC/zsh-simple-abbreviations/-/pipelines)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![License](https://img.shields.io/badge/License-AGPLv3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
 
