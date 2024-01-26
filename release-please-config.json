@@ -2,6 +2,9 @@
   "changelog-type": "github",
   "release-type": "go",
   "pull-request-title-pattern": "chore: release ${version}",
+  "extra-files": [
+    "src/zsh-simple-abbreviations"
+  ],
   "packages": {
     ".": {}
   }
