@@ -3,6 +3,7 @@
   "release-type": "go",
   "pull-request-title-pattern": "chore: release ${version}",
   "extra-files": [
+    "README.md",
     "src/zsh-simple-abbreviations"
   ],
   "packages": {
