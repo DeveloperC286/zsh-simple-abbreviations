@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
-if [[ -n $ZSH_VERSION ]]; then
+# Only run if executed in Zsh environment.
+if [[ -n "${ZSH_VERSION}" ]]; then
 		# Create new abbreviations map.
 		typeset -Ag _zsh_simple_abbreviations
 
