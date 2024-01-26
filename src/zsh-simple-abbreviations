@@ -9,7 +9,7 @@ __zsh_simple_abbreviations::expand() {
 		# Can't use KEY_REGEX, but should match it.
 		LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9]#}
 		# If matches set abbreviation add that else just add what we attempted to match on.
-		LBUFFER+=${${_zsh_simple_abbreviations[$MATCH]}:-$MATCH}
+		LBUFFER+=${${ZSH_SIMPLE_ABBREVIATIONS[$MATCH]}:-$MATCH}
 		# Causes the syntax highlighting.
 		zle self-insert
 }
@@ -35,7 +35,7 @@ case $1 in
 				local value=${3}
 
 				if [[ "${key}" =~ ${KEY_REGEX} ]]; then
-						_zsh_simple_abbreviations[$key]="${value}"
+						ZSH_SIMPLE_ABBREVIATIONS[$key]="${value}"
 				else
 						echo "zsh_simple_abbreviations key '${key}' contains non-alphanumeric characters."
 						return 1
@@ -51,7 +51,7 @@ case $1 in
 				local key=${2}
 
 				if [[ "${key}" =~ ${KEY_REGEX} ]]; then
-						if [[ -n "${_zsh_simple_abbreviations[$key]}" ]]; then
+						if [[ -n "${ZSH_SIMPLE_ABBREVIATIONS[$key]}" ]]; then
 								unset "_zsh_simple_abbreviations[$key]"
 						else
 								echo "zsh_simple_abbreviations remove sub-command key does not match any abbreviations."
@@ -70,8 +70,8 @@ case $1 in
 						return 1
 				fi
 
-				for key in ${(ko)_zsh_simple_abbreviations}; do
-						echo "zsh_simple_abbreviations --add ${key} '${_zsh_simple_abbreviations[$key]}'"
+				for key in ${(ko)ZSH_SIMPLE_ABBREVIATIONS}; do
+						echo "zsh_simple_abbreviations --add ${key} '${ZSH_SIMPLE_ABBREVIATIONS[$key]}'"
 				done
 		;;
 
