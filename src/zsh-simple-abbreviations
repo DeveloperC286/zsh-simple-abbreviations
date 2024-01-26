@@ -42,21 +42,16 @@ case $1 in
 				fi
 		;;
 
-		--remove)
+		--unset)
 				if [[ $# -ne 2 ]]; then
-						echo "zsh_simple_abbreviations remove sub-command requires only a key."
+						echo "zsh_simple_abbreviations unset sub-command requires only a key."
 						return 1
 				fi
 
 				local key=${2}
 
 				if [[ "${key}" =~ ${KEY_REGEX} ]]; then
-						if [[ -n "${ZSH_SIMPLE_ABBREVIATIONS[$key]}" ]]; then
-								unset "_zsh_simple_abbreviations[$key]"
-						else
-								echo "zsh_simple_abbreviations remove sub-command key does not match any abbreviations."
-								return 1
-						fi
+						unset "ZSH_SIMPLE_ABBREVIATIONS[${key}]"
 				else
 						echo "zsh_simple_abbreviations key '${key}' contains non-alphanumeric characters."
 						return 1
