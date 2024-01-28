@@ -9,10 +9,12 @@ if [[ -n "${ZSH_VERSION}" ]]; then
 		autoload -Uz zsh-simple-abbreviations
 
 		# Create key binding on space to expand into a possible abbreviations.
-		zle -N __zsh_simple_abbreviations::expand
-		bindkey " "    __zsh_simple_abbreviations::expand
+		autoload -Uz __zsh_simple_abbreviations_expand
+		zle -N __zsh_simple_abbreviations_expand
+		bindkey " " __zsh_simple_abbreviations_expand
 
 		# Create key binding on control + space to insert a space without any possible abbreviations expansion.
-		zle -N __zsh_simple_abbreviations::insert_space
-		bindkey "^ "    __zsh_simple_abbreviations::insert_space
+		autoload -Uz __zsh_simple_abbreviations_insert_space
+		zle -N __zsh_simple_abbreviations_insert_space
+		bindkey "^ " __zsh_simple_abbreviations_insert_space
 fi
