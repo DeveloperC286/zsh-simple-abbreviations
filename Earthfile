@@ -25,20 +25,37 @@ check-clean-git-history:
     RUN ./ci/check-clean-git-history.sh --from-reference "${from_reference}"
 
 
+golang-base:
+    FROM golang:1.20.13
+    ENV GOPROXY=direct
+    ENV CGO_ENABLED=0
+    ENV GOOS=linux
+    ENV GOARCH=amd64
+
+
+formatting-base:
+    FROM +golang-base
+	RUN go install mvdan.cc/sh/v3/cmd/shfmt@v3.7.0
+    DO +COPY_CI_DATA
+
+
+check-formatting:
+    FROM +formatting-base
+    RUN ./ci/check-formatting.sh
+
+
+fix-formatting:
+    FROM +formatting-base
+    RUN ./ci/fix-formatting.sh
+    SAVE ARTIFACT "./ci" AS LOCAL "./ci"
+
+
 check-conventional-commits-linting:
     FROM +rust-base
     RUN cargo install conventional_commits_linter --version 0.12.3
     DO +COPY_METADATA
     ARG from_reference="origin/HEAD"
     RUN ./ci/check-conventional-commits-linting.sh --from-reference "${from_reference}"
-
-
-golang-base:
-    FROM golang:1.20.4
-    ENV GOPROXY=direct
-    ENV CGO_ENABLED=0
-    ENV GOOS=linux
-    ENV GOARCH=amd64
 
 
 check-github-actions-workflows-linting:

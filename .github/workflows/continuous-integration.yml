@@ -1,0 +1,19 @@
+name: Continuous Integration (CI)
+
+on: pull_request
+
+env:
+  # Forcing Earthly to use colours, to make reading output easier.
+  FORCE_COLOR: 1
+
+jobs:
+  formatting:
+    name: Formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Earthly v0.8.1.
+        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.1/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
+      - name: Checkout code.
+        uses: actions/checkout@v3
+      - name: Check formatting.
+        run: earthly --ci +check-formatting
