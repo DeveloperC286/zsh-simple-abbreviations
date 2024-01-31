@@ -57,17 +57,6 @@ case $1 in
 				fi
 		;;
 
-		--list)
-				if [[ $# -ne 1 ]]; then
-						echo "zsh_simple_abbreviations list sub-command takes no other arguments."
-						return 1
-				fi
-
-				for key in ${(ko)ZSH_SIMPLE_ABBREVIATIONS}; do
-						echo "zsh_simple_abbreviations --set ${key} '${ZSH_SIMPLE_ABBREVIATIONS[$key]}'"
-				done
-		;;
-
 		*)
 				echo "zsh_simple_abbreviations unrecognised sub-command."
 				return 1
