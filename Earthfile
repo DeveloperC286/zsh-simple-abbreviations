@@ -33,21 +33,48 @@ golang-base:
     ENV GOARCH=amd64
 
 
-formatting-base:
+shell-formatting-base:
     FROM +golang-base
 	RUN go install mvdan.cc/sh/v3/cmd/shfmt@v3.7.0
     DO +COPY_CI_DATA
 
 
+check-shell-formatting:
+    FROM +shell-formatting-base
+    RUN ./ci/check-shell-formatting.sh
+
+
+yaml-formatting-base:
+    FROM +golang-base
+	RUN go install github.com/google/yamlfmt/cmd/yamlfmt@v0.10.0
+    COPY ".yamlfmt" ".yamlfmt"
+    DO +COPY_CI_DATA
+
+check-yaml-formatting:
+    FROM +yaml-formatting-base
+    RUN ./ci/check-yaml-formatting.sh
+
+
 check-formatting:
-    FROM +formatting-base
-    RUN ./ci/check-formatting.sh
+    BUILD +check-shell-formatting
+    BUILD +check-yaml-formatting
+
+
+fix-shell-formatting:
+    FROM +sh-formatting-base
+    RUN ./ci/fix-shell-formatting.sh
+    SAVE ARTIFACT "./ci" AS LOCAL "./ci"
+
+
+fix-yaml-formatting:
+    FROM +yaml-formatting-base
+    RUN ./ci/fix-yaml-formatting.sh
+    SAVE ARTIFACT "./.github" AS LOCAL "./.github"
 
 
 fix-formatting:
-    FROM +formatting-base
-    RUN ./ci/fix-formatting.sh
-    SAVE ARTIFACT "./ci" AS LOCAL "./ci"
+    BUILD +fix-shell-formatting
+    BUILD +fix-yaml-formatting
 
 
 check-conventional-commits-linting:
