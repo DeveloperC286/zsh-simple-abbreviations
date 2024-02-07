@@ -90,3 +90,40 @@ check-github-actions-workflows-linting:
     RUN go install github.com/rhysd/actionlint/cmd/actionlint@v1.6.26
     DO +COPY_CI_DATA
     RUN ./ci/check-github-actions-workflows-linting.sh
+
+
+COPY_SOURCECODE:
+    COMMAND
+	COPY "./zsh-simple-abbreviations.zsh" "./zsh-simple-abbreviations.zsh"
+    COPY "./src" "./src"
+    COPY "./end-to-end-tests" "./end-to-end-tests"
+
+
+e2e-test:
+    BUILD +setting-abbreviation-e2e-test
+    BUILD +unsetting-abbreviation-e2e-test
+    BUILD +no-space-does-not-expand-abbreviation-e2e-test
+
+
+e2e-test-base:
+    FROM python:3.9.18
+    DO +COPY_SOURCECODE
+    # https://askubuntu.com/questions/462690/what-does-apt-get-fix-missing-do-and-when-is-it-useful
+    RUN apt-get update --fix-missing
+    RUN apt-get install zsh -y
+    RUN pip3 install -r end-to-end-tests/requirements.txt
+
+
+setting-abbreviation-e2e-test:
+    FROM +e2e-test-base
+    RUN python3 end-to-end-tests/setting-abbreviation.py
+
+
+unsetting-abbreviation-e2e-test:
+    FROM +e2e-test-base
+    RUN python3 end-to-end-tests/unsetting-abbreviation.py
+
+
+no-space-does-not-expand-abbreviation-e2e-test:
+    FROM +e2e-test-base
+    RUN python3 end-to-end-tests/no-space-does-not-expand-abbreviation.py
