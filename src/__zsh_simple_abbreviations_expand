@@ -3,7 +3,7 @@
 emulate -L zsh -o extended_glob
 local MATCH
 # Can't use KEY_REGEX, but should match it.
-LBUFFER=${LBUFFER%%(#m)[-_a-zA-Z0-9]#}
+LBUFFER=${LBUFFER%%(#m)[[:alnum:]]#}
 # If matches set abbreviation add that else just add what we attempted to match on.
 LBUFFER+=${${ZSH_SIMPLE_ABBREVIATIONS[$MATCH]}:-$MATCH}
 # Causes the syntax highlighting.
