@@ -1,0 +1,4 @@
+#!/usr/bin/env zsh
+
+# Adds a space to the end of the command buffer.
+LBUFFER+=" "

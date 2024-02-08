@@ -103,6 +103,7 @@ e2e-test:
     BUILD +setting-abbreviation-e2e-test
     BUILD +unsetting-abbreviation-e2e-test
     BUILD +no-space-does-not-expand-abbreviation-e2e-test
+    BUILD +no-abbreviations-e2e-test
 
 
 e2e-test-base:
@@ -127,3 +128,8 @@ unsetting-abbreviation-e2e-test:
 no-space-does-not-expand-abbreviation-e2e-test:
     FROM +e2e-test-base
     RUN python3 end-to-end-tests/no-space-does-not-expand-abbreviation.py
+
+
+no-abbreviations-e2e-test:
+    FROM +e2e-test-base
+    RUN python3 end-to-end-tests/no-abbreviations.py
