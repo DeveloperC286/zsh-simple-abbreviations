@@ -3,4 +3,4 @@
 set -o errexit
 set -o xtrace
 
-shfmt --simplify --write ./ci/*
+shfmt --simplify --write ./ci/* ./src/* zsh-simple-abbreviations.zsh

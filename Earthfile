@@ -36,7 +36,7 @@ golang-base:
 shell-formatting-base:
     FROM +golang-base
 	RUN go install mvdan.cc/sh/v3/cmd/shfmt@v3.7.0
-    DO +COPY_CI_DATA
+    DO +COPY_SOURCECODE
 
 
 check-shell-formatting:
@@ -50,6 +50,7 @@ yaml-formatting-base:
     COPY ".yamlfmt" ".yamlfmt"
     DO +COPY_CI_DATA
 
+
 check-yaml-formatting:
     FROM +yaml-formatting-base
     RUN ./ci/check-yaml-formatting.sh
@@ -61,9 +62,11 @@ check-formatting:
 
 
 fix-shell-formatting:
-    FROM +sh-formatting-base
+    FROM +shell-formatting-base
     RUN ./ci/fix-shell-formatting.sh
     SAVE ARTIFACT "./ci" AS LOCAL "./ci"
+    SAVE ARTIFACT "./src" AS LOCAL "./src"
+    SAVE ARTIFACT "zsh-simple-abbreviations.zsh" AS LOCAL "zsh-simple-abbreviations.zsh"
 
 
 fix-yaml-formatting:
@@ -94,7 +97,8 @@ check-github-actions-workflows-linting:
 
 COPY_SOURCECODE:
     COMMAND
-	COPY "./zsh-simple-abbreviations.zsh" "./zsh-simple-abbreviations.zsh"
+    DO +COPY_CI_DATA
+    COPY "./zsh-simple-abbreviations.zsh" "./zsh-simple-abbreviations.zsh"
     COPY "./src" "./src"
     COPY "./end-to-end-tests" "./end-to-end-tests"
 

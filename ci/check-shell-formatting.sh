@@ -3,4 +3,4 @@
 set -o errexit
 set -o xtrace
 
-shfmt --simplify --diff ./ci/*
+shfmt --simplify --diff ./ci/* ./src/* zsh-simple-abbreviations.zsh
