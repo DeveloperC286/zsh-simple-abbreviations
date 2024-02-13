@@ -5,6 +5,7 @@ local MATCH
 # Can't use KEY_REGEX, but should match it.
 LBUFFER=${LBUFFER%%(#m)[[:alnum:]]#}
 # If matches set abbreviation add that else just add what we attempted to match on.
-LBUFFER+=${${ZSH_SIMPLE_ABBREVIATIONS[$MATCH]}:-$MATCH}
+abbreviation="${ZSH_SIMPLE_ABBREVIATIONS[$MATCH]}"
+LBUFFER+=${abbreviation:-$MATCH}
 # Causes the syntax highlighting.
 zle self-insert
