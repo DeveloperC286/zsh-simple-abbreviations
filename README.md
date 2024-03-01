@@ -30,7 +30,7 @@ And you type `GP` and hit enter the alias will be looked up behind the scenes an
 
 ### Abbreviations
 ```sh
-zsh-simple-abbreviations --add GP "git pull"
+zsh-simple-abbreviations --set GP "git pull"
 ```
 
 If you create an abbreviation called `GP` standing for `git pull`.
@@ -69,9 +69,8 @@ zsh-simple-abbreviations is a simple manager for abbreviations with a minimal bu
 
 ## Content
  * [Usage](#usage)
-   + [Usage - Add abbreviation](#usage-add-abbreviation)
-   + [Usage - Remove abbreviation](#usage-remove-abbreviation)
-   + [Usage - List abbreviations](#usage-list-abbreviations)
+   + [Usage - Set an abbreviation](#usage-set-an-abbreviation)
+   + [Usage - Unset an abbreviation](#usage-unset-an-abbreviation)
    + [Usage - Insert space and do not expand](#usage-insert-space-and-do-not-expand)
  * [Installation](#installation)
    + [Installation - Standalone](#installation-standalone)
@@ -80,29 +79,24 @@ zsh-simple-abbreviations is a simple manager for abbreviations with a minimal bu
 
 
 ## Usage
-### Usage - Add abbreviation
+### Usage - Set an abbreviation
 ```sh
-zsh-simple-abbreviations --add <abbreviation> <command abbreviation expands to>
+zsh-simple-abbreviations --set <abbreviation> <command abbreviation expands to>
 ```
 
 E.g.
 ```sh
-zsh-simple-abbreviations --add GP "git pull"
+zsh-simple-abbreviations --set GP "git pull"
 ```
 
-### Usage - Remove abbreviation
+### Usage - Unset an abbreviation
 ```sh
-zsh-simple-abbreviations --remove <abbreviation>
+zsh-simple-abbreviations --unset <abbreviation>
 ```
 
 E.g.
 ```sh
-zsh-simple-abbreviations --remove GP
-```
-
-### Usage - List abbreviations
-```sh
-zsh-simple-abbreviations --list
+zsh-simple-abbreviations --unset GP
 ```
 
 ### Usage - Insert space and do not expand
