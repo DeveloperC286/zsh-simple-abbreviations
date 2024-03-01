@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.1 (2024-03-01)
+
+## What's Changed
+* sbuild: upgrading to Earthly v0.8.4 by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/46
+
+
+**Full Changelog**: https://github.com/DeveloperC286/zsh-simple-abbreviations/compare/v1.0.0...v1.0.1
+
 ## 1.0.0 (2024-03-01)
 
 ## What's Changed
