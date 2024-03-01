@@ -113,6 +113,8 @@ COPY_SOURCECODE:
 
 
 e2e-test:
+    BUILD +abbreviation-finding-ignores-arguments-e2e-test
+    BUILD +abbreviation-finding-ignores-environment-variables-e2e-test
     BUILD +setting-abbreviation-e2e-test
     BUILD +unsetting-abbreviation-e2e-test
     BUILD +no-space-does-not-expand-abbreviation-e2e-test
@@ -126,6 +128,16 @@ e2e-test-base:
     RUN apt-get update --fix-missing
     RUN apt-get install zsh -y
     RUN pip3 install -r end-to-end-tests/requirements.txt
+
+
+abbreviation-finding-ignores-arguments-e2e-test:
+    FROM +e2e-test-base
+    RUN python3 end-to-end-tests/abbreviation-finding-ignores-arguments.py
+
+
+abbreviation-finding-ignores-environment-variables-e2e-test:
+    FROM +e2e-test-base
+    RUN python3 end-to-end-tests/abbreviation-finding-ignores-environment-variables.py
 
 
 setting-abbreviation-e2e-test:
