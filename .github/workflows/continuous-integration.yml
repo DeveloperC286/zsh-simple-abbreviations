@@ -27,6 +27,16 @@ jobs:
         uses: actions/checkout@v3
       - name: Check YAML formatting.
         run: earthly --ci +check-yaml-formatting
+  shell-linting:
+    name: Shell Formatting
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Earthly v0.8.1.
+        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.1/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
+      - name: Checkout code.
+        uses: actions/checkout@v3
+      - name: Check Shell formatting.
+        run: earthly --ci +check-shell-linting
   e2e-test:
     name: End to End Test
     runs-on: ubuntu-latest

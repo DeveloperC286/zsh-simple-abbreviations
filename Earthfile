@@ -80,6 +80,15 @@ fix-formatting:
     BUILD +fix-yaml-formatting
 
 
+check-shell-linting:
+    FROM ubuntu:22.04
+    # https://askubuntu.com/questions/462690/what-does-apt-get-fix-missing-do-and-when-is-it-useful
+    RUN apt-get update --fix-missing
+    RUN apt-get install shellcheck -y
+    DO +COPY_SOURCECODE
+    RUN ./ci/check-shell-linting.sh
+
+
 check-conventional-commits-linting:
     FROM +rust-base
     RUN cargo install conventional_commits_linter --version 0.12.3 --locked
