@@ -11,8 +11,8 @@ jobs:
     name: Shell Formatting
     runs-on: ubuntu-latest
     steps:
-      - name: Download Earthly v0.8.4.
-        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.4/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
+      - name: Download Earthly v0.8.6.
+        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.6/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
       - name: Checkout code.
         uses: actions/checkout@v3
       - name: Check Shell formatting.
@@ -21,8 +21,8 @@ jobs:
     name: YAML Formatting
     runs-on: ubuntu-latest
     steps:
-      - name: Download Earthly v0.8.4.
-        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.4/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
+      - name: Download Earthly v0.8.6.
+        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.6/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
       - name: Checkout code.
         uses: actions/checkout@v3
       - name: Check YAML formatting.
@@ -31,8 +31,8 @@ jobs:
     name: Shell Formatting
     runs-on: ubuntu-latest
     steps:
-      - name: Download Earthly v0.8.4.
-        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.4/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
+      - name: Download Earthly v0.8.6.
+        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.6/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
       - name: Checkout code.
         uses: actions/checkout@v3
       - name: Check Shell formatting.
@@ -41,8 +41,8 @@ jobs:
     name: End to End Test
     runs-on: ubuntu-latest
     steps:
-      - name: Download Earthly v0.8.4.
-        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.4/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
+      - name: Download Earthly v0.8.6.
+        run: "sudo /bin/sh -c 'wget https://github.com/earthly/earthly/releases/download/v0.8.6/earthly-linux-amd64 -O /usr/local/bin/earthly && chmod +x /usr/local/bin/earthly'"
       - name: Checkout code.
         uses: actions/checkout@v3
       - name: End to end test.
