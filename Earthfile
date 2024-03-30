@@ -35,7 +35,7 @@ golang-base:
 
 shell-formatting-base:
     FROM +golang-base
-	RUN go install mvdan.cc/sh/v3/cmd/shfmt@v3.7.0
+    RUN go install mvdan.cc/sh/v3/cmd/shfmt@v3.7.0
     DO +COPY_SOURCECODE
 
 
@@ -46,7 +46,7 @@ check-shell-formatting:
 
 yaml-formatting-base:
     FROM +golang-base
-	RUN go install github.com/google/yamlfmt/cmd/yamlfmt@v0.10.0
+    RUN go install github.com/google/yamlfmt/cmd/yamlfmt@v0.10.0
     COPY ".yamlfmt" ".yamlfmt"
     DO +COPY_CI_DATA
 
