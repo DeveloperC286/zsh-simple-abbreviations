@@ -3,14 +3,13 @@ VERSION 0.7
 
 COPY_CI_DATA:
     COMMAND
-    COPY "./ci" "./ci"
-    COPY ".github" ".github"
+    COPY --dir "ci/" ".github/" "./"
 
 
 COPY_METADATA:
     COMMAND
     DO +COPY_CI_DATA
-    COPY ".git" ".git"
+    COPY --dir ".git/" "./"
 
 
 rust-base:
@@ -49,7 +48,7 @@ check-shell-formatting:
 yaml-formatting-base:
     FROM +golang-base
     RUN go install github.com/google/yamlfmt/cmd/yamlfmt@v0.10.0
-    COPY ".yamlfmt" ".yamlfmt"
+    COPY ".yamlfmt" "./"
     DO +COPY_CI_DATA
 
 
@@ -110,9 +109,7 @@ check-github-actions-workflows-linting:
 COPY_SOURCECODE:
     COMMAND
     DO +COPY_CI_DATA
-    COPY "./zsh-simple-abbreviations.zsh" "./zsh-simple-abbreviations.zsh"
-    COPY "./src" "./src"
-    COPY "./end-to-end-tests" "./end-to-end-tests"
+    COPY --dir "zsh-simple-abbreviations.zsh/" "src/" "end-to-end-tests/" "./"
 
 
 e2e-test:
