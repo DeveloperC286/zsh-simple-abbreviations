@@ -1,48 +1,64 @@
 #!/usr/bin/env zsh
 
 KEY_REGEX="^[[:alnum:]]+$"
+CMD="zsh_simple_abbreviations"
+
+_validate_key() {
+	local key=$1
+	if [[ ${key} =~ ${KEY_REGEX} ]]; then
+		return 0
+	else
+		echo "${CMD} key '${key}' contains non-alphanumeric characters."
+		return 1
+	fi
+}
 
 if [[ $# -eq 0 ]]; then
-	echo "zsh_simple_abbreviations no sub-command or arguments provided."
+	echo "${CMD} no sub-command or arguments provided."
 	return 1
 fi
 
 case $1 in
 --set)
 	if [[ $# -ne 3 ]]; then
-		echo "zsh_simple_abbreviations set sub-command requires a key and value."
+		echo "${CMD} set sub-command requires a key and value."
 		return 1
 	fi
 
 	local key=${2}
 	local value=${3}
 
-	if [[ ${key} =~ ${KEY_REGEX} ]]; then
-		ZSH_SIMPLE_ABBREVIATIONS[$key]="${value}"
-	else
-		echo "zsh_simple_abbreviations key '${key}' contains non-alphanumeric characters."
+	if ! _validate_key "${key}"; then
 		return 1
 	fi
+
+	ZSH_SIMPLE_ABBREVIATIONS[$key]="${value}"
 	;;
 
 --unset)
 	if [[ $# -ne 2 ]]; then
-		echo "zsh_simple_abbreviations unset sub-command requires only a key."
+		echo "${CMD} unset sub-command requires only a key."
 		return 1
 	fi
 
 	local key=${2}
 
-	if [[ ${key} =~ ${KEY_REGEX} ]]; then
-		unset "ZSH_SIMPLE_ABBREVIATIONS[${key}]"
-	else
-		echo "zsh_simple_abbreviations key '${key}' contains non-alphanumeric characters."
+	if ! _validate_key "${key}"; then
 		return 1
 	fi
+
+	unset "ZSH_SIMPLE_ABBREVIATIONS[${key}]"
+	;;
+
+--help)
+	echo "Usage: ${CMD} [--set KEY VALUE | --unset KEY | --help]"
+	echo "  --set KEY VALUE   Set an abbreviation for KEY to VALUE."
+	echo "  --unset KEY       Remove the abbreviation for KEY."
+	echo "  --help            Display this help message."
 	;;
 
 *)
-	echo "zsh_simple_abbreviations unrecognised sub-command."
+	echo "${CMD} unrecognised sub-command."
 	return 1
 	;;
 esac
