@@ -15,6 +15,7 @@ COPY_METADATA:
 
 rust-base:
     FROM rust:1.70.0
+    WORKDIR "/zsh-simple-abbreviations"
 
 
 check-clean-git-history:
@@ -31,6 +32,7 @@ golang-base:
     ENV CGO_ENABLED=0
     ENV GOOS=linux
     ENV GOARCH=amd64
+    WORKDIR "/zsh-simple-abbreviations"
 
 
 shell-formatting-base:
@@ -85,6 +87,7 @@ check-shell-linting:
     # https://askubuntu.com/questions/462690/what-does-apt-get-fix-missing-do-and-when-is-it-useful
     RUN apt-get update --fix-missing
     RUN apt-get install shellcheck -y
+    WORKDIR "/zsh-simple-abbreviations"
     DO +COPY_SOURCECODE
     RUN ./ci/check-shell-linting.sh
 
@@ -123,10 +126,11 @@ e2e-test:
 
 e2e-test-base:
     FROM python:3.9.18
-    DO +COPY_SOURCECODE
     # https://askubuntu.com/questions/462690/what-does-apt-get-fix-missing-do-and-when-is-it-useful
     RUN apt-get update --fix-missing
     RUN apt-get install zsh -y
+    WORKDIR "/zsh-simple-abbreviations"
+    DO +COPY_SOURCECODE
     RUN pip3 install -r end-to-end-tests/requirements.txt
 
 
