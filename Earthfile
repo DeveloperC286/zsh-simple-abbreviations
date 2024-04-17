@@ -65,15 +65,15 @@ check-formatting:
 fix-shell-formatting:
     FROM +shell-formatting-base
     RUN ./ci/fix-shell-formatting.sh
-    SAVE ARTIFACT "./ci" AS LOCAL "./ci"
-    SAVE ARTIFACT "./src" AS LOCAL "./src"
+    SAVE ARTIFACT "ci/" AS LOCAL "ci/"
+    SAVE ARTIFACT "src/" AS LOCAL "src/"
     SAVE ARTIFACT "zsh-simple-abbreviations.zsh" AS LOCAL "zsh-simple-abbreviations.zsh"
 
 
 fix-yaml-formatting:
     FROM +yaml-formatting-base
     RUN ./ci/fix-yaml-formatting.sh
-    SAVE ARTIFACT "./.github" AS LOCAL "./.github"
+    SAVE ARTIFACT ".github/" AS LOCAL ".github/"
 
 
 fix-formatting:
