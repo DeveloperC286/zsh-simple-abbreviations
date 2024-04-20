@@ -25,6 +25,12 @@ check-clean-git-history:
     RUN ./ci/check-clean-git-history.sh --from-reference "${from_reference}"
 
 
+COPY_SOURCECODE:
+    COMMAND
+    DO +COPY_CI_DATA
+    COPY --dir "zsh-simple-abbreviations.zsh" "src/" "end-to-end-tests/" "./"
+
+
 golang-base:
     FROM golang:1.20.13
     ENV GOPROXY=direct
@@ -104,12 +110,6 @@ check-github-actions-workflows-linting:
     RUN go install github.com/rhysd/actionlint/cmd/actionlint@v1.6.26
     DO +COPY_CI_DATA
     RUN ./ci/check-github-actions-workflows-linting.sh
-
-
-COPY_SOURCECODE:
-    COMMAND
-    DO +COPY_CI_DATA
-    COPY --dir "zsh-simple-abbreviations.zsh/" "src/" "end-to-end-tests/" "./"
 
 
 e2e-test:
