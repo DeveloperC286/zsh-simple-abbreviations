@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.0.1 (2024-05-24)
+
+## What's Changed
+* sbuild: upgrading to Earthly v0.8.4 by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/46
+* refactor: replacing tabs with spaces by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/48
+* build: adding working directory by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/49
+* build: upgrading to Earthly v0.8.6 by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/50
+* build: COPY stop repeating target location by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/51
+* build: SAVE naming matches COPY by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/52
+* build: removing trailing '/' on file copy by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/53
+* build: removing '.goreleaser.yaml' references by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/54
+* build: SAVE ARTIFACT output location fix by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/55
+* build: upgrading to Earthly v0.8.12 by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/56
+* ci: using matrix strategy for repeated language jobs by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/57
+
+
+**Full Changelog**: https://github.com/DeveloperC286/zsh-simple-abbreviations/compare/v1.0.0...v1.0.1
+
 ## 1.0.0 (2024-03-01)
 
 ## What's Changed
