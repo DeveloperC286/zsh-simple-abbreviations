@@ -108,7 +108,7 @@ If you want to insert a space and not expand the any abbreviations to the left o
 You first need to clone zsh-simple-abbreviations.
 
 ```sh
-git clone https://gitlab.com/DeveloperC/zsh-simple-abbreviations/ "${HOME}/.zsh-simple-abbreviations"
+git clone https://github.com/DeveloperC286/zsh-simple-abbreviations/ "${HOME}/.zsh-simple-abbreviations"
 ```
 
 Then in your `.zshrc` you need to source zsh-simple-abbreviations, before you can add, remove and use abbreviations.
@@ -118,7 +118,7 @@ source "${HOME}/.zsh-simple-abbreviations/zsh-simple-abbreviations.zsh"
 ```
 
 ### Installation - oh-my-minimal
-zsh-simple-abbreviations is included as part of oh-my-minimal see [https://gitlab.com/DeveloperC/oh-my-minimal](https://gitlab.com/DeveloperC/oh-my-minimal) for more information.
+zsh-simple-abbreviations is included as part of oh-my-minimal see [https://github.com/DeveloperC286/oh-my-minimal](https://github.com/DeveloperC286/oh-my-minimal) for more information.
 
 
 ## Issues/Feature Requests
