@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.0.1 (2024-10-02)
+
+## What's Changed
+* build: upgrading to Earthly v0.8.4 by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/46
+* refactor: replacing tabs with spaces by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/48
+* build: adding working directory by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/49
+* build: upgrading to Earthly v0.8.6 by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/50
+* build: COPY stop repeating target location by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/51
+* build: SAVE naming matches COPY by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/52
+* build: removing trailing '/' on file copy by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/53
+* build: removing '.goreleaser.yaml' references by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/54
+* build: SAVE ARTIFACT output location fix by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/55
+* build: upgrading to Earthly v0.8.12 by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/56
+* ci: using matrix strategy for repeated language jobs by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/57
+* ci: moving GitHub Actions workflow formatting check by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/58
+* docs: changing URLs to GitHub by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/59
+* docs: changing installation instruction to use release by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/60
+
+
+**Full Changelog**: https://github.com/DeveloperC286/zsh-simple-abbreviations/compare/v1.0.0...v1.0.1
+
 ## 1.0.0 (2024-03-01)
 
 ## What's Changed
