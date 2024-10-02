@@ -107,9 +107,11 @@ If you want to insert a space and not expand the any abbreviations to the left o
 ### Installation - Standalone
 You first need to clone zsh-simple-abbreviations.
 
+<!-- x-release-please-start-version -->
 ```sh
-curl -sL "https://github.com/DeveloperC286/zsh-simple-abbreviations/archive/refs/tags/v1.0.0.tar.gz" | tar xz --directory "/tmp/" && rm -rf "${HOME}/.zsh-simple-abbreviations" && mv "/tmp/zsh-simple-abbreviations-1.0.0" "${HOME}/.zsh-simple-abbreviations"
+version="1.0.0" && curl -sL "https://github.com/DeveloperC286/zsh-simple-abbreviations/archive/refs/tags/v${version}.tar.gz" | tar xz --directory "/tmp/" && rm -rf "${HOME}/.zsh-simple-abbreviations" && mv "/tmp/zsh-simple-abbreviations-${version}" "${HOME}/.zsh-simple-abbreviations"
 ```
+<!-- x-release-please-end -->
 
 Then in your `.zshrc` you need to source zsh-simple-abbreviations, before you can add, remove and use abbreviations.
 
