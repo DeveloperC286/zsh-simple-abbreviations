@@ -137,7 +137,7 @@ e2e-test:
 python-base:
     FROM +alpine-base
     # renovate: datasource=repology depName=alpine_3_20/python3 versioning=loose
-    ENV PYTHON_VERSION="3.12.7-r0"
+    ENV PYTHON_VERSION="3.12.8-r1"
     # renovate: datasource=repology depName=alpine_3_20/py3-pip versioning=loose
     ENV PIP_VERSION="24.0-r2"
     RUN apk add --no-cache py3-pip=$PIP_VERSION python3=$PYTHON_VERSION
