@@ -47,7 +47,7 @@ COPY_SOURCECODE:
 
 
 golang-base:
-    FROM golang:1.23.5@sha256:e213430692e5c31aba27473cdc84cfff2896d0c097e984bef67b6a44c75a8181
+    FROM golang:1.23.6@sha256:958bd2e45b2d6d166aa0e33ee737093fe0c773c89c3fc142f26ac65ec37507cd
     WORKDIR "/zsh-simple-abbreviations"
 
 
