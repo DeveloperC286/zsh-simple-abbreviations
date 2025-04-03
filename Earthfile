@@ -13,9 +13,9 @@ COPY_METADATA:
 
 
 alpine-base:
-    FROM alpine:3.20.3@sha256:1e42bbe2508154c9126d48c2b8a75420c3544343bf86fd041fb7527e017a4b4a
-    # renovate: datasource=repology depName=alpine_3_20/bash versioning=loose
-    ENV BASH_VERSION="5.2.26-r0"
+    FROM alpine:3.21.3@sha256:a8560b36e8b8210634f77d9f7f9efd7ffa463e380b75e2e74aff4511df3ef88c
+    # renovate: datasource=repology depName=alpine_3_21/bash versioning=loose
+    ENV BASH_VERSION="5.2.37-r0"
     RUN apk add --no-cache bash=$BASH_VERSION
     WORKDIR "/zsh-simple-abbreviations"
 
@@ -104,7 +104,7 @@ fix-formatting:
 
 check-shell-linting:
     FROM +alpine-base
-    # renovate: datasource=repology depName=alpine_3_20/shellcheck versioning=loose
+    # renovate: datasource=repology depName=alpine_3_21/shellcheck versioning=loose
     ENV SHELLCHECK_VERSION="0.10.0-r1"
     RUN apk add --no-cache shellcheck=$SHELLCHECK_VERSION
     DO +COPY_SOURCECODE
@@ -136,17 +136,17 @@ e2e-test:
 
 python-base:
     FROM +alpine-base
-    # renovate: datasource=repology depName=alpine_3_20/python3 versioning=loose
+    # renovate: datasource=repology depName=alpine_3_21/python3 versioning=loose
     ENV PYTHON_VERSION="3.12.9-r0"
-    # renovate: datasource=repology depName=alpine_3_20/py3-pip versioning=loose
-    ENV PIP_VERSION="24.0-r2"
+    # renovate: datasource=repology depName=alpine_3_21/py3-pip versioning=loose
+    ENV PIP_VERSION="24.3.1-r0"
     RUN apk add --no-cache py3-pip=$PIP_VERSION python3=$PYTHON_VERSION
 
 
 e2e-test-base:
     FROM +python-base
-    # renovate: datasource=repology depName=alpine_3_20/zsh versioning=loose
-    ENV ZSH_VERSION="5.9-r3"
+    # renovate: datasource=repology depName=alpine_3_21/zsh versioning=loose
+    ENV ZSH_VERSION="5.9-r4"
     RUN apk add --no-cache zsh=$ZSH_VERSION
     DO +COPY_SOURCECODE
     RUN pip3 install -r end-to-end-tests/requirements.txt --break-system-packages
