@@ -46,6 +46,24 @@ COPY_SOURCECODE:
     COPY --dir "zsh-simple-abbreviations.zsh" "src/" "end-to-end-tests/" "./"
 
 
+python-base:
+    FROM +alpine-base
+    # renovate: datasource=repology depName=alpine_3_21/python3 versioning=loose
+    ENV PYTHON_VERSION="3.12.9-r0"
+    # renovate: datasource=repology depName=alpine_3_21/py3-pip versioning=loose
+    ENV PIP_VERSION="24.3.1-r0"
+    # renovate: datasource=repology depName=alpine_3_21/zsh versioning=loose
+    ENV ZSH_VERSION="5.9-r4"
+    RUN apk add --no-cache py3-pip=$PIP_VERSION python3=$PYTHON_VERSION zsh=$ZSH_VERSION
+    DO +COPY_SOURCECODE
+    RUN pip3 install -r end-to-end-tests/requirements.txt --break-system-packages
+
+
+check-python-formatting:
+    FROM +python-base
+    RUN ./ci/check-python-formatting.sh
+
+
 golang-base:
     FROM golang:1.24.2@sha256:991aa6a6e4431f2f01e869a812934bd60fbc87fb939e4a1ea54b8494ab9d2fc6
     WORKDIR "/zsh-simple-abbreviations"
@@ -79,8 +97,15 @@ check-yaml-formatting:
 
 
 check-formatting:
+    BUILD +check-python-formatting
     BUILD +check-shell-formatting
     BUILD +check-yaml-formatting
+
+
+fix-python-formatting:
+    FROM +python-base
+    RUN ./ci/fix-python-formatting.sh
+    SAVE ARTIFACT "end-to-end-tests/" AS LOCAL "./"
 
 
 fix-shell-formatting:
@@ -98,6 +123,7 @@ fix-yaml-formatting:
 
 
 fix-formatting:
+    BUILD +fix-python-formatting
     BUILD +fix-shell-formatting
     BUILD +fix-yaml-formatting
 
@@ -134,49 +160,31 @@ e2e-test:
     BUILD +no-abbreviations-e2e-test
 
 
-python-base:
-    FROM +alpine-base
-    # renovate: datasource=repology depName=alpine_3_21/python3 versioning=loose
-    ENV PYTHON_VERSION="3.12.9-r0"
-    # renovate: datasource=repology depName=alpine_3_21/py3-pip versioning=loose
-    ENV PIP_VERSION="24.3.1-r0"
-    RUN apk add --no-cache py3-pip=$PIP_VERSION python3=$PYTHON_VERSION
-
-
-e2e-test-base:
-    FROM +python-base
-    # renovate: datasource=repology depName=alpine_3_21/zsh versioning=loose
-    ENV ZSH_VERSION="5.9-r4"
-    RUN apk add --no-cache zsh=$ZSH_VERSION
-    DO +COPY_SOURCECODE
-    RUN pip3 install -r end-to-end-tests/requirements.txt --break-system-packages
-
-
 abbreviation-finding-ignores-arguments-e2e-test:
-    FROM +e2e-test-base
+    FROM +python-base
     RUN python3 end-to-end-tests/abbreviation-finding-ignores-arguments.py
 
 
 abbreviation-finding-ignores-environment-variables-e2e-test:
-    FROM +e2e-test-base
+    FROM +python-base
     RUN python3 end-to-end-tests/abbreviation-finding-ignores-environment-variables.py
 
 
 setting-abbreviation-e2e-test:
-    FROM +e2e-test-base
+    FROM +python-base
     RUN python3 end-to-end-tests/setting-abbreviation.py
 
 
 unsetting-abbreviation-e2e-test:
-    FROM +e2e-test-base
+    FROM +python-base
     RUN python3 end-to-end-tests/unsetting-abbreviation.py
 
 
 no-space-does-not-expand-abbreviation-e2e-test:
-    FROM +e2e-test-base
+    FROM +python-base
     RUN python3 end-to-end-tests/no-space-does-not-expand-abbreviation.py
 
 
 no-abbreviations-e2e-test:
-    FROM +e2e-test-base
+    FROM +python-base
     RUN python3 end-to-end-tests/no-abbreviations.py
