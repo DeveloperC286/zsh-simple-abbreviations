@@ -49,7 +49,7 @@ COPY_SOURCECODE:
 python-base:
     FROM +alpine-base
     # renovate: datasource=repology depName=alpine_3_21/python3 versioning=loose
-    ENV PYTHON_VERSION="3.12.9-r0"
+    ENV PYTHON_VERSION="3.12.10-r0"
     # renovate: datasource=repology depName=alpine_3_21/py3-pip versioning=loose
     ENV PIP_VERSION="24.3.1-r0"
     # renovate: datasource=repology depName=alpine_3_21/zsh versioning=loose
