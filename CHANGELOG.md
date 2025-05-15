@@ -1,5 +1,19 @@
 # Changelog
 
+## 1.0.2 (2025-05-15)
+
+## What's Changed
+* chore(deps): update dependency developerc286/clean_git_history to v1.0.1 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/127
+* chore(deps): update golang:1.24.2 docker digest to 8131d99 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/129
+* chore(deps): update golang:1.24.2 docker digest to f52b85c by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/130
+* chore(deps): update golang:1.24.2 docker digest to 3a060d6 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/131
+* chore(deps): update golang:1.24.2 docker digest to 30baaea by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/132
+* chore(deps): update golang docker tag to v1.24.3 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/133
+* chore(deps): update golang:1.24.3 docker digest to 86b4cff by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/135
+
+
+**Full Changelog**: https://github.com/DeveloperC286/zsh-simple-abbreviations/compare/v1.0.1...v1.0.2
+
 ## 1.0.1 (2025-04-18)
 
 ## What's Changed
