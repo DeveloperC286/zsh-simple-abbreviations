@@ -4,6 +4,6 @@ RUN apk add --no-cache zsh=5.9-r4
 COPY end-to-end-tests/requirements.txt ./
 RUN pip3 install -r requirements.txt
 
-WORKDIR /zsh-simple-abbreviations
+WORKDIR /workspace
 
 ENTRYPOINT ["python3"]
