@@ -1,5 +1,36 @@
 # Changelog
 
+## 1.0.2 (2025-06-13)
+
+## What's Changed
+* chore(deps): update dependency developerc286/clean_git_history to v1.0.1 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/127
+* chore(deps): update golang:1.24.2 docker digest to 8131d99 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/129
+* chore(deps): update golang:1.24.2 docker digest to f52b85c by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/130
+* chore(deps): update golang:1.24.2 docker digest to 3a060d6 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/131
+* chore(deps): update golang:1.24.2 docker digest to 30baaea by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/132
+* chore(deps): update golang docker tag to v1.24.3 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/133
+* chore(deps): update golang:1.24.3 docker digest to 86b4cff by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/135
+* chore(deps): update dependency developerc286/clean_git_history to v1.0.2 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/136
+* chore(deps): update dependency alpine_3_21/python3 to v3.12.10-r1 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/138
+* chore(deps): update golang:1.24.3 docker digest to 1bcf884 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/137
+* chore(deps): update golang:1.24.3 docker digest to 02a2275 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/139
+* chore(deps): update golang:1.24.3 docker digest to e84f2e8 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/140
+* chore(deps): update golang:1.24.3 docker digest to 795a40c by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/141
+* chore(deps): update golang:1.24.3 docker digest to 4c0a181 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/142
+* chore(deps): update dependency google/yamlfmt to v0.17.0 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/143
+* chore(deps): update golang:1.24.3 docker digest to 81bf592 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/145
+* chore(deps): update golang docker tag to v1.24.4 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/146
+* chore(deps): update dependency alpine_3_21/python3 to v3.12.11-r0 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/147
+* chore(config): migrate renovate config by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/134
+* chore(deps): update dependency developerc286/clean_git_history to v1.0.3 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/148
+* build: replacing Earthly with Makefile & Docker build/run by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/149
+* build: changing WORKDIR to workspace by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/150
+* chore(deps): update python docker tag to v3.13.5 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/151
+* chore(deps): update python:3.13.5-alpine3.21 docker digest to c9a09c4 by @renovate in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/152
+
+
+**Full Changelog**: https://github.com/DeveloperC286/zsh-simple-abbreviations/compare/v1.0.1...v1.0.2
+
 ## 1.0.1 (2025-04-18)
 
 ## What's Changed
