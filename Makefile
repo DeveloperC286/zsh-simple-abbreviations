@@ -69,3 +69,4 @@ end-to-end-test:
 	docker run $(DOCKER_RUN_OPTS) end-to-end-test end-to-end-tests/unsetting-abbreviation.py
 	docker run $(DOCKER_RUN_OPTS) end-to-end-test end-to-end-tests/no-space-does-not-expand-abbreviation.py
 	docker run $(DOCKER_RUN_OPTS) end-to-end-test end-to-end-tests/no-abbreviations.py
+	docker run $(DOCKER_RUN_OPTS) end-to-end-test end-to-end-tests/listing-abbreviations.py
