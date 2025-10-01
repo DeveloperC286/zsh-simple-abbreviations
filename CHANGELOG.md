@@ -1,5 +1,67 @@
 # Changelog
 
+## 1.0.2 (2025-10-01)
+
+## What's Changed
+* chore(deps): update dependency developerc286/clean_git_history to v1.0.1 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/127
+* chore(deps): update golang:1.24.2 docker digest to 8131d99 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/129
+* chore(deps): update golang:1.24.2 docker digest to f52b85c by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/130
+* chore(deps): update golang:1.24.2 docker digest to 3a060d6 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/131
+* chore(deps): update golang:1.24.2 docker digest to 30baaea by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/132
+* chore(deps): update golang docker tag to v1.24.3 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/133
+* chore(deps): update golang:1.24.3 docker digest to 86b4cff by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/135
+* chore(deps): update dependency developerc286/clean_git_history to v1.0.2 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/136
+* chore(deps): update dependency alpine_3_21/python3 to v3.12.10-r1 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/138
+* chore(deps): update golang:1.24.3 docker digest to 1bcf884 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/137
+* chore(deps): update golang:1.24.3 docker digest to 02a2275 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/139
+* chore(deps): update golang:1.24.3 docker digest to e84f2e8 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/140
+* chore(deps): update golang:1.24.3 docker digest to 795a40c by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/141
+* chore(deps): update golang:1.24.3 docker digest to 4c0a181 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/142
+* chore(deps): update dependency google/yamlfmt to v0.17.0 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/143
+* chore(deps): update golang:1.24.3 docker digest to 81bf592 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/145
+* chore(deps): update golang docker tag to v1.24.4 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/146
+* chore(deps): update dependency alpine_3_21/python3 to v3.12.11-r0 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/147
+* chore(config): migrate renovate config by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/134
+* chore(deps): update dependency developerc286/clean_git_history to v1.0.3 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/148
+* build: replacing Earthly with Makefile & Docker build/run by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/149
+* build: changing WORKDIR to workspace by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/150
+* chore(deps): update python docker tag to v3.13.5 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/151
+* chore(deps): update python:3.13.5-alpine3.21 docker digest to c9a09c4 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/152
+* ci: Renovate updating Makefile's Docker Images by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/153
+* ci: adding Renovate config Makefile by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/154
+* ci: simplifying mirroring workflow by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/155
+* ci: migrating to clean_git_history Docker image by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/156
+* ci: conventional commits linter Docker image by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/157
+* refactor: GitHub Actions setting permissions by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/158
+* build: simplifying Makefile by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/159
+* chore(deps): update ghcr.io/google/yamlfmt docker tag to v0.17.2 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/160
+* fix: correcting PHONY name by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/162
+* chore(deps): update mvdan/shfmt docker tag to v3.12.0 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/161
+* chore(deps): update python:3.13.5-alpine3.21 docker digest to 6a5f50a by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/163
+* chore(deps): update python:3.13.5-alpine3.21 docker digest to fd94400 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/164
+* chore(deps): update python:3.13.5-alpine3.21 docker digest to 716e13a by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/165
+* chore(deps): update python:3.13.5-alpine3.21 docker digest to 763eee4 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/166
+* chore(deps): update python docker tag to v3.13.6 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/167
+* chore(deps): update python:3.13.6-alpine3.21 docker digest to f5f2574 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/168
+* chore(deps): update actions/checkout action to v4.3.0 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/171
+* chore(deps): update actions/checkout action to v5 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/172
+* chore(deps): update python:3.13.6-alpine3.21 docker digest to 5bcbb2a by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/173
+* chore(deps): update python:3.13.6-alpine3.21 docker digest to 52153b8 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/174
+* chore(deps): update python:3.13.6-alpine3.21 docker digest to 2af1351 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/175
+* chore(deps): update python:3.13.6-alpine3.21 docker digest to 4358f4b by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/176
+* chore(deps): update python docker tag to v3.13.7 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/177
+* chore(deps): update python:3.13.7-alpine3.21 docker digest to 8f70fe3 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/178
+* chore(deps): update python:3.13.7-alpine3.21 docker digest to 0c3d4f2 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/179
+* chore(deps): update googleapis/release-please-action action to v4.3.0 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/180
+* chore(deps): update ghcr.io/developerc286/clean_git_history docker tag to v1.1.0 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/181
+* ci: adding Claude Code workflows by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/183
+* chore(deps): update ghcr.io/developerc286/conventional_commits_linter docker tag to v0.16.0 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/182
+* chore(deps): update anthropics/claude-code-action digest to 426380f by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/185
+* chore(deps): update anthropics/claude-code-action digest to 90d189f by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/186
+
+
+**Full Changelog**: https://github.com/DeveloperC286/zsh-simple-abbreviations/compare/v1.0.1...v1.0.2
+
 ## 1.0.1 (2025-04-18)
 
 ## What's Changed
