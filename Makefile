@@ -17,6 +17,14 @@ fix-python-formatting:
 fix-yaml-formatting:
 	yamlfmt -verbose -dstar .github/workflows/*
 
+.PHONY: check-python-linting
+check-python-linting:
+	ruff check --line-length 120 end-to-end-tests/
+
+.PHONY: fix-python-linting
+fix-python-linting:
+	ruff check --fix --line-length 120 end-to-end-tests/
+
 .PHONY: check-github-actions-workflows-linting
 check-github-actions-workflows-linting:
 	actionlint -verbose -color
