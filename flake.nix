@@ -23,11 +23,13 @@
           hardeningDisable = [ "all" ];
 
           buildInputs = [
-            # Shell scripts.
+            # Shell formatting.
             pkgs.shfmt
-            pkgs.shellcheck
-            # GitHub Action Workflows.
+            # YAML formatting.
             pkgs.yamlfmt
+            # Shell linting.
+            pkgs.shellcheck
+            # GitHub Actions workflows linting.
             pkgs.actionlint
             # End to end tests.
             pkgs.zsh
