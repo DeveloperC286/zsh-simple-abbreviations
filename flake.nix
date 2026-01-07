@@ -23,19 +23,18 @@
           hardeningDisable = [ "all" ];
 
           buildInputs = [
-            # Shell formatting.
-            pkgs.shfmt
+            # Python formatting.
+            pkgs.python313Packages.autopep8
             # YAML formatting.
             pkgs.yamlfmt
-            # Shell linting.
-            pkgs.shellcheck
+            # Python linting.
+            pkgs.python313Packages.ruff
             # GitHub Actions workflows linting.
             pkgs.actionlint
             # End to end tests.
             pkgs.zsh
             pkgs.python313
             pkgs.python313Packages.pexpect
-            pkgs.python313Packages.autopep8
             # Deploying.
             pkgs.gh
           ];
