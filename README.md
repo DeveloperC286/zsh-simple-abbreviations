@@ -70,6 +70,7 @@ zsh-simple-abbreviations is a simple manager for abbreviations with a minimal bu
  * [Usage](#usage)
    + [Usage - Set an abbreviation](#usage-set-an-abbreviation)
    + [Usage - Unset an abbreviation](#usage-unset-an-abbreviation)
+   + [Usage - List abbreviations](#usage-list-abbreviations)
    + [Usage - Insert space and do not expand](#usage-insert-space-and-do-not-expand)
  * [Installation](#installation)
    + [Installation - Standalone](#installation-standalone)
@@ -96,6 +97,11 @@ zsh-simple-abbreviations --unset <abbreviation>
 E.g.
 ```sh
 zsh-simple-abbreviations --unset GP
+```
+
+### Usage - List abbreviations
+```sh
+zsh-simple-abbreviations --list
 ```
 
 ### Usage - Insert space and do not expand
