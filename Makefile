@@ -37,3 +37,4 @@ end-to-end-test:
 	python3 end-to-end-tests/unsetting-abbreviation.py
 	python3 end-to-end-tests/no-space-does-not-expand-abbreviation.py
 	python3 end-to-end-tests/no-abbreviations.py
+	python3 end-to-end-tests/listing-abbreviations.py
