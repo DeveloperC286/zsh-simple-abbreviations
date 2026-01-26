@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.1.1 (2026-01-26)
+
+## What's Changed
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/245
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/247
+
+
+**Full Changelog**: https://github.com/DeveloperC286/zsh-simple-abbreviations/compare/v1.1.0...v1.1.1
+
 ## 1.1.0 (2026-01-16)
 
 ## What's Changed
