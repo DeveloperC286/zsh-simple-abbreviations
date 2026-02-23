@@ -1,5 +1,21 @@
 # Changelog
 
+## 1.1.1 (2026-02-23)
+
+## What's Changed
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/245
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/247
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/248
+* chore(deps): update dependency https://github.com/developerc286/template to v1.7.3 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/249
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/250
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/251
+* chore(deps): update dependency https://github.com/developerc286/template to v1.7.4 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/252
+* chore(deps): update dependency https://github.com/developerc286/template to v1.7.5 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/253
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/254
+
+
+**Full Changelog**: https://github.com/DeveloperC286/zsh-simple-abbreviations/compare/v1.1.0...v1.1.1
+
 ## 1.1.0 (2026-01-16)
 
 ## What's Changed
