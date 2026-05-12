@@ -2,9 +2,12 @@
 
 # Only run if executed in Zsh environment.
 if [[ -n ${ZSH_VERSION} ]]; then
-	# Create new abbreviations map.
+	# Create a new global(-g) abbreviations associative array parameters(-A).
+	# https://zsh.sourceforge.io/Doc/Release/Parameters.html#Array-Parameters
 	typeset -Ag ZSH_SIMPLE_ABBREVIATIONS
 
+	# Add the src directory to the function path.
+	# So we can do `> zsh-simple-abbreviations --set ...` from the CLI.
 	fpath+=${0:A:h}/src
 	autoload -Uz zsh-simple-abbreviations
 
