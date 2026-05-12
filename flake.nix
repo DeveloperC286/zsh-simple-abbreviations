@@ -11,8 +11,38 @@
         pkgs = import nixpkgs {
           inherit system;
         };
+
+        zsh-simple-abbreviations = pkgs.stdenvNoCC.mkDerivation {
+          name = "zsh-simple-abbreviations";
+
+          src = self;
+
+          strictDeps = true;
+          dontConfigure = true;
+          dontBuild = true;
+
+          installPhase = ''
+            runHook preInstall
+
+            install -Dm644 zsh-simple-abbreviations.zsh \
+              "$out/share/zsh-simple-abbreviations/zsh-simple-abbreviations.zsh"
+            cp -R src "$out/share/zsh-simple-abbreviations/"
+
+            runHook postInstall
+          '';
+
+          meta = {
+            description = "Simple manager for abbreviations in Z shell (Zsh)";
+            homepage = "https://github.com/DeveloperC286/zsh-simple-abbreviations";
+            license = pkgs.lib.licenses.agpl3Only;
+            platforms = pkgs.lib.platforms.unix;
+          };
+        };
       in
       {
+        packages.default = zsh-simple-abbreviations;
+        packages.zsh-simple-abbreviations = zsh-simple-abbreviations;
+
         devShells.default = pkgs.mkShell {
           # Disable all Nix hardening flags to prevent interference with Cargo builds.
           # These flags are designed for C/C++ and can cause issues with:

@@ -11,7 +11,7 @@ zsh = pexpect.spawnu('/usr/bin/env zsh --no-rcs',
 # Ready to take a command.
 zsh.expect('>')
 # Source the plugin.
-zsh.sendline(f"source \"{test_directory}/../zsh-simple-abbreviations.zsh\"")
+zsh.sendline(f"source \"{test_directory}/../result/share/zsh-simple-abbreviations/zsh-simple-abbreviations.zsh\"")
 
 # Ready to take a command.
 zsh.expect('>')
