@@ -1,5 +1,9 @@
 .PHONY: default
-default: end-to-end-test
+default: compile
+
+.PHONY: compile
+compile:
+	nix build .#zsh-simple-abbreviations
 
 .PHONY: check-python-formatting
 check-python-formatting:
@@ -30,7 +34,7 @@ check-github-actions-workflows-linting:
 	actionlint -verbose -color
 
 .PHONY: end-to-end-test
-end-to-end-test:
+end-to-end-test: compile
 	python3 end-to-end-tests/abbreviation-finding-ignores-arguments.py
 	python3 end-to-end-tests/abbreviation-finding-ignores-environment-variables.py
 	python3 end-to-end-tests/setting-abbreviation.py

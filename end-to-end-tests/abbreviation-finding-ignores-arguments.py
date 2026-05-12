@@ -12,7 +12,7 @@ zsh = pexpect.spawnu('/usr/bin/env zsh --no-rcs',
 zsh.expect('>')
 # Source the plugin and add an abbreviation.
 zsh.sendline(
-    f"source \"{test_directory}/../zsh-simple-abbreviations.zsh\" && zsh-simple-abbreviations --set C 'clear'")
+    f"source \"{test_directory}/../result/share/zsh-simple-abbreviations/zsh-simple-abbreviations.zsh\" && zsh-simple-abbreviations --set C 'clear'")
 
 # Ready to take a command.
 zsh.expect('>')
