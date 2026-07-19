@@ -3,7 +3,7 @@
 emulate -L zsh
 
 local KEY_REGEX="^[[:alnum:]]+$"
-local CMD="zsh_simple_abbreviations"
+local CMD="zsh-simple-abbreviations"
 
 # The `[[ ... =~ ... ]]` regex checks below set these match variables; keep them
 # local so they do not leak into the interactive shell.
@@ -11,14 +11,14 @@ local MATCH MBEGIN MEND
 local -a match mbegin mend
 
 if [[ $# -eq 0 ]]; then
-	echo "${CMD} no sub-command or arguments provided."
+	echo "${CMD} no sub-command or arguments provided." >&2
 	return 1
 fi
 
 case $1 in
 --set)
 	if [[ $# -ne 3 ]]; then
-		echo "${CMD} set sub-command requires a key and value."
+		echo "${CMD} set sub-command requires a key and value." >&2
 		return 1
 	fi
 
@@ -26,7 +26,7 @@ case $1 in
 	local value=${3}
 
 	if [[ ! ${key} =~ ${KEY_REGEX} ]]; then
-		echo "${CMD} key '${key}' contains non-alphanumeric characters."
+		echo "${CMD} key '${key}' contains non-alphanumeric characters." >&2
 		return 1
 	fi
 
@@ -35,14 +35,14 @@ case $1 in
 
 --unset)
 	if [[ $# -ne 2 ]]; then
-		echo "${CMD} unset sub-command requires only a key."
+		echo "${CMD} unset sub-command requires only a key." >&2
 		return 1
 	fi
 
 	local key=${2}
 
 	if [[ ! ${key} =~ ${KEY_REGEX} ]]; then
-		echo "${CMD} key '${key}' contains non-alphanumeric characters."
+		echo "${CMD} key '${key}' contains non-alphanumeric characters." >&2
 		return 1
 	fi
 
@@ -59,7 +59,7 @@ case $1 in
 
 --list)
 	if [[ $# -ne 1 ]]; then
-		echo "zsh_simple_abbreviations list sub-command takes no other arguments."
+		echo "${CMD} list sub-command takes no other arguments." >&2
 		return 1
 	fi
 
@@ -70,7 +70,7 @@ case $1 in
 	;;
 
 *)
-	echo "${CMD} unrecognised sub-command."
+	echo "${CMD} unrecognised sub-command." >&2
 	return 1
 	;;
 esac
