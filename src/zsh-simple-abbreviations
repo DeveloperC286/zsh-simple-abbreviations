@@ -50,9 +50,10 @@ case $1 in
 	;;
 
 --help)
-	echo "Usage: ${CMD} [--set KEY VALUE | --unset KEY | --help]"
+	echo "Usage: ${CMD} [--set KEY VALUE | --unset KEY | --list | --help]"
 	echo "  --set KEY VALUE   Set an abbreviation for KEY to VALUE."
 	echo "  --unset KEY       Remove the abbreviation for KEY."
+	echo "  --list            List all abbreviations."
 	echo "  --help            Display this help message."
 	;;
 
