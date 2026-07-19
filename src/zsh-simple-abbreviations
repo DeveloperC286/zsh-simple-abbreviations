@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+emulate -L zsh
+
 local KEY_REGEX="^[[:alnum:]]+$"
 local CMD="zsh_simple_abbreviations"
 

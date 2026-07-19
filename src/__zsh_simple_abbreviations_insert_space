@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
 
+emulate -L zsh
+
 # Adds a space to the end of the command buffer.
 LBUFFER+=" "
