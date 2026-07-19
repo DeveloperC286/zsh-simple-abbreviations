@@ -42,3 +42,4 @@ end-to-end-test: compile
 	python3 end-to-end-tests/no-space-does-not-expand-abbreviation.py
 	python3 end-to-end-tests/no-abbreviations.py
 	python3 end-to-end-tests/listing-abbreviations.py
+	python3 end-to-end-tests/listing-abbreviations-is-shell-safe.py

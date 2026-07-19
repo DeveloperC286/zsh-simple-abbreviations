@@ -64,7 +64,7 @@ case $1 in
 	fi
 
 	for key in ${(ko)ZSH_SIMPLE_ABBREVIATIONS}; do
-		echo "zsh-simple-abbreviations --set ${key} '${ZSH_SIMPLE_ABBREVIATIONS[$key]}'"
+		echo "zsh-simple-abbreviations --set ${key} ${(qq)ZSH_SIMPLE_ABBREVIATIONS[$key]}"
 	done
 	;;
 
