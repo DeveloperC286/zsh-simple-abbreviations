@@ -24,8 +24,8 @@ zsh.sendline("echo 'rg -C 123'")
 zsh.expect('>')
 output = (before + zsh.before)
 
-# Assert the abbreviation was expanded to 'hello'.
-print(output)
+# Assert the command echoed literally and the abbreviation was not expanded.
+assert "rg -C 123" in output
 assert "rg -clear 123" not in output
 
 # Done with test close Zsh.
