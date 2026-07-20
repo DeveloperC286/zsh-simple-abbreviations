@@ -21,6 +21,13 @@ fix-python-formatting:
 fix-yaml-formatting:
 	yamlfmt -verbose -dstar .github/workflows/*
 
+.PHONY: check-zsh-linting
+check-zsh-linting:
+	zsh -n zsh-simple-abbreviations.zsh
+	zsh -n src/zsh-simple-abbreviations
+	zsh -n src/__zsh_simple_abbreviations_expand
+	zsh -n src/__zsh_simple_abbreviations_insert_space
+
 .PHONY: check-python-linting
 check-python-linting:
 	ruff check --line-length 120 end-to-end-tests/
