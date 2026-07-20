@@ -10,7 +10,7 @@ A simple manager for abbreviations in Z shell (Zsh).
 ## What is an abbreviation?
 Abbreviations are a concept inspired by the fish shell. They are very similar to aliases, being used to reference commands in order to reduce keystrokes and improve efficiency.
 
-The difference between aliases and abbreviations is that aliases are left in place and reference commands, where as abbreviations are replaced with the commands they reference.
+The difference between aliases and abbreviations is that aliases are left in place and reference commands, whereas abbreviations are replaced with the commands they reference.
 
 E.g.
 
@@ -51,10 +51,10 @@ Now when you hit enter to execute the command nothing is being looked up/process
 ## Why use abbreviations over aliases?
 ### 1. Know what is actually being executed.
 When you hit enter you do not have to guess what is being executed and hope something in your command will not be misinterpreted.
-Because abbreviations inline the referenced commands, therefore you will never be surprised by what is actually being executed.
+Because abbreviations inline the referenced commands, you will never be surprised by what is actually being executed.
 
 ### 2. Accurate history.
-Because abbreviations inline the referenced commands your history now accurately stores exactly what was executed at the time.
+Because abbreviations inline the referenced commands, your history now accurately stores exactly what was executed at the time.
 Whereas if you change an alias, your history no longer matches what was actually executed.
 
 ### 3. Enable collaboration.
