@@ -2,6 +2,12 @@
 
 emulate -L zsh
 
+# Ensure the associative array exists so the --set sub-command does not abort
+# fatally when ZSH_SIMPLE_ABBREVIATIONS is unset (e.g. the user unset it, or the
+# function is called without the plugin's init having run). This is idempotent:
+# it declares the array only if absent and preserves any existing contents.
+typeset -gA ZSH_SIMPLE_ABBREVIATIONS
+
 local KEY_REGEX="^[[:alnum:]]+$"
 local CMD="zsh-simple-abbreviations"
 
