@@ -38,6 +38,7 @@ end-to-end-test: compile
 	python3 end-to-end-tests/abbreviation-finding-ignores-arguments.py
 	python3 end-to-end-tests/abbreviation-finding-ignores-environment-variables.py
 	python3 end-to-end-tests/setting-abbreviation.py
+	python3 end-to-end-tests/setting-abbreviation-after-unsetting-array.py
 	python3 end-to-end-tests/unsetting-abbreviation.py
 	python3 end-to-end-tests/no-space-does-not-expand-abbreviation.py
 	python3 end-to-end-tests/no-abbreviations.py
