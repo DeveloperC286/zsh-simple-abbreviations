@@ -24,7 +24,8 @@ zsh.sendline("echo H")
 zsh.expect('>')
 output = (before + zsh.before)
 
-# Assert the abbreviation was expanded to 'hello'.
+# Assert the command echoed literally and the abbreviation was not expanded.
+assert "echo H" in output
 assert "hello" not in output
 
 # Done with test close Zsh.
