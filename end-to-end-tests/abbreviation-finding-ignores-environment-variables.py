@@ -24,8 +24,8 @@ zsh.sendline("echo ZSH_C ")
 zsh.expect('>')
 output = (before + zsh.before)
 
-# Assert the abbreviation was expanded to 'hello'.
-print(output)
+# Assert the command echoed literally and the abbreviation was not expanded.
+assert "ZSH_C" in output
 assert "ZSH_clear" not in output
 
 # Done with test close Zsh.
