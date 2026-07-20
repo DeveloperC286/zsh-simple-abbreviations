@@ -71,7 +71,7 @@ case $1 in
 
 	local key
 	for key in ${(ko)ZSH_SIMPLE_ABBREVIATIONS}; do
-		echo "zsh-simple-abbreviations --set ${key} ${(qq)ZSH_SIMPLE_ABBREVIATIONS[$key]}"
+		print -r -- "zsh-simple-abbreviations --set ${key} ${(qq)ZSH_SIMPLE_ABBREVIATIONS[$key]}"
 	done
 	;;
 
