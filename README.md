@@ -74,7 +74,7 @@ zsh-simple-abbreviations is a simple manager for abbreviations with a minimal bu
    + [Usage - Insert space and do not expand](#usage-insert-space-and-do-not-expand)
  * [Installation](#installation)
    + [Installation - Standalone](#installation-standalone)
-   + [Installation - oh-my-minimal](#installation-oh-my-minimal)
+   + [Installation - Recommended](#installation-recommended)
  * [Issues/Feature Requests](#issuesfeature-requests)
 
 
@@ -124,8 +124,10 @@ Then in your `.zshrc` you need to source zsh-simple-abbreviations, before you ca
 source "${HOME}/.zsh-simple-abbreviations/zsh-simple-abbreviations.zsh"
 ```
 
-### Installation - oh-my-minimal
-zsh-simple-abbreviations is included as part of oh-my-minimal see [https://github.com/DeveloperC286/oh-my-minimal](https://github.com/DeveloperC286/oh-my-minimal) for more information.
+### Installation - Recommended
+My recommended approach is to use Nix Home Manager to set up your overall shell experience declaratively, including installing your Zsh plugins.
+
+Alternatively, install Zsh plugins with a plugin manager such as zplug or zinit. This is more adaptable because it makes it easier to add, remove and update plugins.
 
 
 ## Issues/Feature Requests
