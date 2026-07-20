@@ -8,7 +8,8 @@ emulate -L zsh
 # it declares the array only if absent and preserves any existing contents.
 typeset -gA ZSH_SIMPLE_ABBREVIATIONS
 
-local KEY_REGEX="^[[:alnum:]]+$"
+# Matching expand match class: https://github.com/DeveloperC286/zsh-simple-abbreviations/blob/main/src/__zsh_simple_abbreviations_expand#L5
+local KEY_REGEX="^[-_[:alnum:]]+$"
 local CMD="zsh-simple-abbreviations"
 
 # The `[[ ... =~ ... ]]` regex checks below set these match variables; keep them
@@ -32,7 +33,7 @@ case $1 in
 	local value=${3}
 
 	if [[ ! ${key} =~ ${KEY_REGEX} ]]; then
-		echo "${CMD} key '${key}' contains non-alphanumeric characters." >&2
+		echo "${CMD} key '${key}' contains characters other than alphanumerics, '-' or '_'." >&2
 		return 1
 	fi
 
@@ -48,7 +49,7 @@ case $1 in
 	local key=${2}
 
 	if [[ ! ${key} =~ ${KEY_REGEX} ]]; then
-		echo "${CMD} key '${key}' contains non-alphanumeric characters." >&2
+		echo "${CMD} key '${key}' contains characters other than alphanumerics, '-' or '_'." >&2
 		return 1
 	fi
 
