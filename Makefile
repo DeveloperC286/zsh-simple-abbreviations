@@ -35,6 +35,7 @@ check-github-actions-workflows-linting:
 
 .PHONY: end-to-end-test
 end-to-end-test: compile
+	python3 end-to-end-tests/installing.py
 	python3 end-to-end-tests/abbreviation-finding-ignores-arguments.py
 	python3 end-to-end-tests/abbreviation-finding-ignores-environment-variables.py
 	python3 end-to-end-tests/setting-abbreviation.py
