@@ -37,7 +37,8 @@ zsh.sendline("echo H ")
 # Ready to take a command.
 zsh.expect('>')
 output = (before + zsh.before)
-# Assert abbreviation was unset.
+# Assert the command echoed literally and the abbreviation was unset.
+assert "echo H" in output
 assert "hello" not in output
 
 # Done with test close Zsh.
