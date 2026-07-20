@@ -73,8 +73,9 @@ zsh-simple-abbreviations is a simple manager for abbreviations with a minimal bu
    + [Usage - List abbreviations](#usage-list-abbreviations)
    + [Usage - Insert space and do not expand](#usage-insert-space-and-do-not-expand)
  * [Installation](#installation)
+   + [Installation - Nix Home Manager](#installation-nix-home-manager)
+   + [Installation - Plugin manager](#installation-plugin-manager)
    + [Installation - Standalone](#installation-standalone)
-   + [Installation - Recommended](#installation-recommended)
  * [Issues/Feature Requests](#issuesfeature-requests)
 
 
@@ -109,8 +110,46 @@ If you want to insert a space and not expand any abbreviations to the left of th
 
 
 ## Installation
+### Installation - Nix Home Manager
+My recommended approach is to use Nix Home Manager to set up your overall shell experience declaratively, including installing your Zsh plugins.
+
+Add zsh-simple-abbreviations as a flake input, pinned to the latest release.
+
+<!-- x-release-please-start-version -->
+```nix
+inputs.zsh-simple-abbreviations.url = "github:DeveloperC286/zsh-simple-abbreviations/v1.2.0";
+```
+<!-- x-release-please-end -->
+
+Then enable it as a Zsh plugin in your Home Manager configuration.
+
+```nix
+programs.zsh.plugins = [
+  {
+    name = "zsh-simple-abbreviations";
+    src = inputs.zsh-simple-abbreviations.packages.${pkgs.system}.default;
+    file = "share/zsh-simple-abbreviations/zsh-simple-abbreviations.zsh";
+  }
+];
+```
+
+### Installation - Plugin manager
+Alternatively, install zsh-simple-abbreviations with a Zsh plugin manager such as zplug or zinit. This is more adaptable because it makes it easier to add, remove and update plugins.
+
+Using [zplug](https://github.com/zplug/zplug), add the following to your `.zshrc`.
+
+```sh
+zplug "DeveloperC286/zsh-simple-abbreviations", use:"zsh-simple-abbreviations.zsh"
+```
+
+Using [zinit](https://github.com/zdharma-continuum/zinit), add the following to your `.zshrc`.
+
+```sh
+zinit light DeveloperC286/zsh-simple-abbreviations
+```
+
 ### Installation - Standalone
-You first need to clone zsh-simple-abbreviations.
+If you do not use a Zsh plugin manager, you can clone zsh-simple-abbreviations manually.
 
 <!-- x-release-please-start-version -->
 ```sh
@@ -123,11 +162,6 @@ Then in your `.zshrc` you need to source zsh-simple-abbreviations, before you ca
 ```sh
 source "${HOME}/.zsh-simple-abbreviations/zsh-simple-abbreviations.zsh"
 ```
-
-### Installation - Recommended
-My recommended approach is to use Nix Home Manager to set up your overall shell experience declaratively, including installing your Zsh plugins.
-
-Alternatively, install Zsh plugins with a plugin manager such as zplug or zinit. This is more adaptable because it makes it easier to add, remove and update plugins.
 
 
 ## Issues/Feature Requests
