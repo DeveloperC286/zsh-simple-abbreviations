@@ -51,3 +51,9 @@ end-to-end-test: compile
 	python3 end-to-end-tests/no-abbreviations.py
 	python3 end-to-end-tests/listing-abbreviations.py
 	python3 end-to-end-tests/listing-abbreviations-is-shell-safe.py
+	python3 end-to-end-tests/successful-sub-commands-return-zero.py
+	python3 end-to-end-tests/wrong-argument-counts-are-rejected.py
+	python3 end-to-end-tests/invalid-keys-are-rejected.py
+	python3 end-to-end-tests/unrecognised-sub-commands-are-rejected.py
+	python3 end-to-end-tests/error-output-goes-to-stderr.py
+	python3 end-to-end-tests/cli-is-unaffected-by-shell-options.py
