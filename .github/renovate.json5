@@ -4,13 +4,21 @@
     "config:best-practices"
   ],
   "automerge": true,
-  "github-actions": {
-    "enabled": false
-  },
   "packageRules": [
     {
+      // The GitHub Actions workflows are managed by Copier, updating them here
+      // conflicts with the template updates. Disabled broadly first so any new
+      // workflow the template adds is protected by default.
       "matchManagers": ["github-actions"],
-      "matchFileNames": [".github/workflows/continuous-integration.yml"],
+      "enabled": false
+    },
+    {
+      // Except these, which are not managed by Copier. The last matching
+      // packageRule wins, so this allowlist must stay after the disable above.
+      "matchManagers": ["github-actions"],
+      "matchFileNames": [
+        ".github/workflows/continuous-integration.yml"
+      ],
       "enabled": true
     }
   ],
