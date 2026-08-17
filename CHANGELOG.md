@@ -1,5 +1,37 @@
 # Changelog
 
+## 1.2.1 (2026-08-17)
+
+## What's Changed
+* chore(deps): update dependency https://github.com/developerc286/template to v1.7.9 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/276
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/278
+* fix: --list output shell-safe with zsh quoting by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/279
+* fix: leaking globals into the interactive shell by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/280
+* fix: reset shell options with emulate -L zsh in CLI functions by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/281
+* docs: mention --list in --help output by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/282
+* docs: fix typos in README by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/283
+* fix: error messages correct command and send to stderr by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/284
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/285
+* test: hygiene in abbreviation-finding tests by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/286
+* docs: fix spelling and grammar in README by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/287
+* test: fix vacuous negative-only assertions in expansion tests by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/288
+* fix: guard --set against unset ZSH_SIMPLE_ABBREVIATIONS by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/289
+* fix: use print -r instead of echo when listing abbreviations by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/290
+* chore: remove unused end-to-end-tests/requirements.txt by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/291
+* ci: syntax-check Zsh source with zsh -n by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/292
+* chore(deps): update dependency https://github.com/developerc286/template to v1.7.10 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/294
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/295
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/296
+* chore(deps): update dependency https://github.com/developerc286/template to v1.7.11 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/297
+* refactor: enable Renovate non-Copier GitHub Actions workflows by @DeveloperC286 in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/298
+* chore(deps): update actions/checkout action to v6.1.0 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/299
+* chore(deps): update cachix/install-nix-action action to v31.11.1 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/300
+* chore(deps): update actions/checkout action to v7 by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/301
+* chore(deps): update nix flake lock by @renovate[bot] in https://github.com/DeveloperC286/zsh-simple-abbreviations/pull/302
+
+
+**Full Changelog**: https://github.com/DeveloperC286/zsh-simple-abbreviations/compare/v1.2.0...v1.2.1
+
 ## 1.2.0 (2026-07-06)
 
 ## What's Changed
