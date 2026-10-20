@@ -7,6 +7,22 @@
 A simple manager for abbreviations in Z shell (Zsh).
 
 
+## Content
+ * [What is an abbreviation?](#what-is-an-abbreviation)
+ * [Why use abbreviations over aliases?](#why-use-abbreviations-over-aliases)
+ * [Why use zsh-simple-abbreviations?](#why-use-zsh-simple-abbreviations)
+ * [Usage](#usage)
+   + [Usage - Set an abbreviation](#usage---set-an-abbreviation)
+   + [Usage - Unset an abbreviation](#usage---unset-an-abbreviation)
+   + [Usage - List abbreviations](#usage---list-abbreviations)
+   + [Usage - Insert space and do not expand](#usage---insert-space-and-do-not-expand)
+ * [Installation](#installation)
+   + [Installation - Nix Home Manager](#installation---nix-home-manager)
+   + [Installation - Plugin manager](#installation---plugin-manager)
+   + [Installation - Standalone](#installation---standalone)
+ * [Issues/Feature Requests](#issuesfeature-requests)
+
+
 ## What is an abbreviation?
 Abbreviations are a concept inspired by the fish shell. They are very similar to aliases, being used to reference commands in order to reduce keystrokes and improve efficiency.
 
@@ -64,19 +80,6 @@ However, if you are using abbreviations it will be inlined to `git rebase master
 
 ## Why use zsh-simple-abbreviations?
 zsh-simple-abbreviations is a simple manager for abbreviations with a minimal but useful set of features.
-
-
-## Content
- * [Usage](#usage)
-   + [Usage - Set an abbreviation](#usage---set-an-abbreviation)
-   + [Usage - Unset an abbreviation](#usage---unset-an-abbreviation)
-   + [Usage - List abbreviations](#usage---list-abbreviations)
-   + [Usage - Insert space and do not expand](#usage---insert-space-and-do-not-expand)
- * [Installation](#installation)
-   + [Installation - Nix Home Manager](#installation---nix-home-manager)
-   + [Installation - Plugin manager](#installation---plugin-manager)
-   + [Installation - Standalone](#installation---standalone)
- * [Issues/Feature Requests](#issuesfeature-requests)
 
 
 ## Usage
