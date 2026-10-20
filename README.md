@@ -134,22 +134,27 @@ programs.zsh.plugins = [
 ```
 
 ### Installation - Plugin manager
-Alternatively, install zsh-simple-abbreviations with a Zsh plugin manager such as zplug or zinit. This is more adaptable because it makes it easier to add, remove and update plugins.
+Alternatively, install zsh-simple-abbreviations with a Zsh plugin manager such as zplug or zinit. Plugin managers make it easy to add, remove and update plugins.
 
-Using [zplug](https://github.com/zplug/zplug), add the following to your `.zshrc`.
+Using [zplug](https://github.com/zplug/zplug), add the following to your `.zshrc`, pinned to the latest release.
 
+<!-- x-release-please-start-version -->
 ```sh
-zplug "DeveloperC286/zsh-simple-abbreviations", use:"zsh-simple-abbreviations.zsh"
+zplug "DeveloperC286/zsh-simple-abbreviations", at:"v1.2.0", use:"zsh-simple-abbreviations.zsh"
 ```
+<!-- x-release-please-end -->
 
-Using [zinit](https://github.com/zdharma-continuum/zinit), add the following to your `.zshrc`.
+Using [zinit](https://github.com/zdharma-continuum/zinit), add the following to your `.zshrc`, pinned to the latest release.
 
+<!-- x-release-please-start-version -->
 ```sh
+zinit ice ver"v1.2.0"
 zinit light DeveloperC286/zsh-simple-abbreviations
 ```
+<!-- x-release-please-end -->
 
 ### Installation - Standalone
-If you do not use a Zsh plugin manager, you can clone zsh-simple-abbreviations manually.
+If you do not use a Zsh plugin manager, you can download a release of zsh-simple-abbreviations manually. This downloads the release's source as a tarball, without the Git history, into `~/.zsh-simple-abbreviations`.
 
 <!-- x-release-please-start-version -->
 ```sh
@@ -157,7 +162,7 @@ version="1.2.0" && curl -sL "https://github.com/DeveloperC286/zsh-simple-abbrevi
 ```
 <!-- x-release-please-end -->
 
-Then in your `.zshrc` you need to source zsh-simple-abbreviations, before you can add, remove and use abbreviations.
+Then source zsh-simple-abbreviations in your `.zshrc` before adding, removing or using abbreviations.
 
 ```sh
 source "${HOME}/.zsh-simple-abbreviations/zsh-simple-abbreviations.zsh"
