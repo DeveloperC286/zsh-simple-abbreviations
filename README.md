@@ -162,7 +162,7 @@ version="1.2.0" && curl -sL "https://github.com/DeveloperC286/zsh-simple-abbrevi
 ```
 <!-- x-release-please-end -->
 
-Then source zsh-simple-abbreviations in your `.zshrc` before adding, removing or using abbreviations.
+Then source zsh-simple-abbreviations in your `.zshrc` before using abbreviations.
 
 ```sh
 source "${HOME}/.zsh-simple-abbreviations/zsh-simple-abbreviations.zsh"
