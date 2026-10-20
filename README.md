@@ -68,14 +68,14 @@ zsh-simple-abbreviations is a simple manager for abbreviations with a minimal bu
 
 ## Content
  * [Usage](#usage)
-   + [Usage - Set an abbreviation](#usage-set-an-abbreviation)
-   + [Usage - Unset an abbreviation](#usage-unset-an-abbreviation)
-   + [Usage - List abbreviations](#usage-list-abbreviations)
-   + [Usage - Insert space and do not expand](#usage-insert-space-and-do-not-expand)
+   + [Usage - Set an abbreviation](#usage---set-an-abbreviation)
+   + [Usage - Unset an abbreviation](#usage---unset-an-abbreviation)
+   + [Usage - List abbreviations](#usage---list-abbreviations)
+   + [Usage - Insert space and do not expand](#usage---insert-space-and-do-not-expand)
  * [Installation](#installation)
-   + [Installation - Nix Home Manager](#installation-nix-home-manager)
-   + [Installation - Plugin manager](#installation-plugin-manager)
-   + [Installation - Standalone](#installation-standalone)
+   + [Installation - Nix Home Manager](#installation---nix-home-manager)
+   + [Installation - Plugin manager](#installation---plugin-manager)
+   + [Installation - Standalone](#installation---standalone)
  * [Issues/Feature Requests](#issuesfeature-requests)
 
 
