@@ -7,6 +7,22 @@
 A simple manager for abbreviations in Z shell (Zsh).
 
 
+## Content
+ * [What is an abbreviation?](#what-is-an-abbreviation)
+ * [Why use abbreviations over aliases?](#why-use-abbreviations-over-aliases)
+ * [Why use zsh-simple-abbreviations?](#why-use-zsh-simple-abbreviations)
+ * [Usage](#usage)
+   + [Usage - Set an abbreviation](#usage---set-an-abbreviation)
+   + [Usage - Unset an abbreviation](#usage---unset-an-abbreviation)
+   + [Usage - List abbreviations](#usage---list-abbreviations)
+   + [Usage - Insert space and do not expand](#usage---insert-space-and-do-not-expand)
+ * [Installation](#installation)
+   + [Installation - Nix Home Manager](#installation---nix-home-manager)
+   + [Installation - Plugin manager](#installation---plugin-manager)
+   + [Installation - Standalone](#installation---standalone)
+ * [Issues/Feature Requests](#issuesfeature-requests)
+
+
 ## What is an abbreviation?
 Abbreviations are a concept inspired by the fish shell. They are very similar to aliases, being used to reference commands in order to reduce keystrokes and improve efficiency.
 
@@ -66,18 +82,6 @@ However, if you are using abbreviations it will be inlined to `git rebase master
 zsh-simple-abbreviations is a simple manager for abbreviations with a minimal but useful set of features.
 
 
-## Content
- * [Usage](#usage)
-   + [Usage - Set an abbreviation](#usage-set-an-abbreviation)
-   + [Usage - Unset an abbreviation](#usage-unset-an-abbreviation)
-   + [Usage - List abbreviations](#usage-list-abbreviations)
-   + [Usage - Insert space and do not expand](#usage-insert-space-and-do-not-expand)
- * [Installation](#installation)
-   + [Installation - Standalone](#installation-standalone)
-   + [Installation - oh-my-minimal](#installation-oh-my-minimal)
- * [Issues/Feature Requests](#issuesfeature-requests)
-
-
 ## Usage
 ### Usage - Set an abbreviation
 ```sh
@@ -109,8 +113,51 @@ If you want to insert a space and not expand any abbreviations to the left of th
 
 
 ## Installation
+### Installation - Nix Home Manager
+My recommended approach is to install zsh-simple-abbreviations declaratively with Nix Home Manager. See the [Home Manager manual](https://nix-community.github.io/home-manager/) if you are new to using Home Manager with flakes.
+
+Add zsh-simple-abbreviations to your flake inputs, pinned to the latest release.
+
+<!-- x-release-please-start-version -->
+```nix
+inputs.zsh-simple-abbreviations.url = "github:DeveloperC286/zsh-simple-abbreviations/v1.2.0";
+```
+<!-- x-release-please-end -->
+
+Then enable it as a Zsh plugin in your Home Manager configuration.
+
+```nix
+programs.zsh.plugins = [
+  {
+    name = "zsh-simple-abbreviations";
+    src = inputs.zsh-simple-abbreviations.packages.${pkgs.stdenv.hostPlatform.system}.default;
+    file = "share/zsh-simple-abbreviations/zsh-simple-abbreviations.zsh";
+  }
+];
+```
+
+### Installation - Plugin manager
+Alternatively, install zsh-simple-abbreviations with a Zsh plugin manager such as zplug or zinit. Plugin managers make it easy to add, remove and update plugins.
+
+Using [zplug](https://github.com/zplug/zplug), add the following to your `.zshrc`, pinned to the latest release.
+
+<!-- x-release-please-start-version -->
+```sh
+zplug "DeveloperC286/zsh-simple-abbreviations", at:"v1.2.0", use:"zsh-simple-abbreviations.zsh"
+```
+<!-- x-release-please-end -->
+
+Using [zinit](https://github.com/zdharma-continuum/zinit), add the following to your `.zshrc`, pinned to the latest release.
+
+<!-- x-release-please-start-version -->
+```sh
+zinit ice ver"v1.2.0"
+zinit light DeveloperC286/zsh-simple-abbreviations
+```
+<!-- x-release-please-end -->
+
 ### Installation - Standalone
-You first need to clone zsh-simple-abbreviations.
+If you do not use a Zsh plugin manager, you can download a release of zsh-simple-abbreviations manually. This downloads the release's source as a tarball, without the Git history, into `~/.zsh-simple-abbreviations`.
 
 <!-- x-release-please-start-version -->
 ```sh
@@ -118,14 +165,11 @@ version="1.2.0" && curl -sL "https://github.com/DeveloperC286/zsh-simple-abbrevi
 ```
 <!-- x-release-please-end -->
 
-Then in your `.zshrc` you need to source zsh-simple-abbreviations, before you can add, remove and use abbreviations.
+Then source zsh-simple-abbreviations in your `.zshrc` before using abbreviations.
 
 ```sh
 source "${HOME}/.zsh-simple-abbreviations/zsh-simple-abbreviations.zsh"
 ```
-
-### Installation - oh-my-minimal
-zsh-simple-abbreviations is included as part of oh-my-minimal see [https://github.com/DeveloperC286/oh-my-minimal](https://github.com/DeveloperC286/oh-my-minimal) for more information.
 
 
 ## Issues/Feature Requests
