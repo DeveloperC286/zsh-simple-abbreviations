@@ -114,9 +114,9 @@ If you want to insert a space and not expand any abbreviations to the left of th
 
 ## Installation
 ### Installation - Nix Home Manager
-My recommended approach is to use Nix Home Manager to set up your overall shell experience declaratively, including installing your Zsh plugins.
+My recommended approach is to install zsh-simple-abbreviations declaratively with Nix Home Manager. See the [Home Manager manual](https://nix-community.github.io/home-manager/) if you are new to using Home Manager with flakes.
 
-Add zsh-simple-abbreviations to the inputs of your `flake.nix`, pinned to the latest release.
+Add zsh-simple-abbreviations to your flake inputs, pinned to the latest release.
 
 <!-- x-release-please-start-version -->
 ```nix
@@ -124,7 +124,7 @@ inputs.zsh-simple-abbreviations.url = "github:DeveloperC286/zsh-simple-abbreviat
 ```
 <!-- x-release-please-end -->
 
-Then enable it as a Zsh plugin in your Home Manager configuration. This assumes your flake's `inputs` are passed to your Home Manager modules, e.g. via `extraSpecialArgs = { inherit inputs; };` in `homeManagerConfiguration`.
+Then enable it as a Zsh plugin in your Home Manager configuration.
 
 ```nix
 programs.zsh.plugins = [
