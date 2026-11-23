@@ -120,7 +120,7 @@ Add zsh-simple-abbreviations to your flake inputs, pinned to the latest release.
 
 <!-- x-release-please-start-version -->
 ```nix
-inputs.zsh-simple-abbreviations.url = "github:DeveloperC286/zsh-simple-abbreviations/v1.2.0";
+inputs.zsh-simple-abbreviations.url = "github:DeveloperC286/zsh-simple-abbreviations/v1.2.1";
 ```
 <!-- x-release-please-end -->
 
@@ -143,7 +143,7 @@ Using [zplug](https://github.com/zplug/zplug), add the following to your `.zshrc
 
 <!-- x-release-please-start-version -->
 ```sh
-zplug "DeveloperC286/zsh-simple-abbreviations", at:"v1.2.0", use:"zsh-simple-abbreviations.zsh"
+zplug "DeveloperC286/zsh-simple-abbreviations", at:"v1.2.1", use:"zsh-simple-abbreviations.zsh"
 ```
 <!-- x-release-please-end -->
 
@@ -151,7 +151,7 @@ Using [zinit](https://github.com/zdharma-continuum/zinit), add the following to 
 
 <!-- x-release-please-start-version -->
 ```sh
-zinit ice ver"v1.2.0"
+zinit ice ver"v1.2.1"
 zinit light DeveloperC286/zsh-simple-abbreviations
 ```
 <!-- x-release-please-end -->
@@ -161,7 +161,7 @@ If you do not use a Zsh plugin manager, you can download a release of zsh-simple
 
 <!-- x-release-please-start-version -->
 ```sh
-version="1.2.0" && curl -sL "https://github.com/DeveloperC286/zsh-simple-abbreviations/archive/refs/tags/v${version}.tar.gz" | tar xz --directory "/tmp/" && rm -rf "${HOME}/.zsh-simple-abbreviations" && mv "/tmp/zsh-simple-abbreviations-${version}" "${HOME}/.zsh-simple-abbreviations"
+version="1.2.1" && curl -sL "https://github.com/DeveloperC286/zsh-simple-abbreviations/archive/refs/tags/v${version}.tar.gz" | tar xz --directory "/tmp/" && rm -rf "${HOME}/.zsh-simple-abbreviations" && mv "/tmp/zsh-simple-abbreviations-${version}" "${HOME}/.zsh-simple-abbreviations"
 ```
 <!-- x-release-please-end -->
 
